@@ -6,7 +6,7 @@
  *  version="1.0.0",
  *  @OA\Contact(
  *    email="samsonanami@gmail.com",
- *    name="Samson Anamieam"
+ *    name="Samson Anami"
  *  )
  * )
  */

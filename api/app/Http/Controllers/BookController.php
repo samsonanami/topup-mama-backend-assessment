@@ -4,40 +4,37 @@
 namespace App\Http\Controllers;
 
 use App\Book;
-use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Resources\BookResource;
-use OpenApi\Annotations as OA;
 
+/**
+ * 
+ * @group Books APIs
+ * 
+ */
 class BookController extends Controller
 {
     /**
-     * @OA\Get(
-     *   path="/users",
-     *   summary="Return the list of users",
-     *   tags={"Hello"},
-     *   @OA\Parameter(ref="#/components/parameters/get_users_request_parameter_limit"),
-     *    @OA\Response(
-     *      response=200,
-     *      description="List of users",
-     *      @OA\JsonContent(
-     *        @OA\Property(
-     *          property="data",
-     *          description="List of users",
-     *          @OA\Schema(
-     *            type="array,
-     *            @OA\Items(ref="#/components/schemas/UserSchema")
-     *          )
-     *        )
-     *      )
-     *    )
-     * )
+     * 
+     * GET Books
+     * 
+     * Display a listing of the books.
+     *
+     * @return \Illuminate\Http\Response
+     * 
      */
     public function index()
     {
         $books = Book::orderBy('released', 'asc')->get();
         return response()->json(BookResource::collection($books));
     }
+    /**
+     * Add a word to the list.
+     *
+     * This endpoint allows you to add a word to the list. It's a really useful endpoint,
+     * and you should play around with it for a bit.
+     * <aside class="notice">We mean it; you really should.😕</aside>
+     */
     public function store(Request $request)
     {
         $this->validate($request, [

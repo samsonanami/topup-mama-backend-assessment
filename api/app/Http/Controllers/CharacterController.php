@@ -10,6 +10,15 @@ use App\Http\Resources\CharacterResource;
 
 class CharacterController extends Controller
 {
+    /**
+     * 
+     * GET Books
+     * 
+     * Display a listing of the books.
+     *
+     * @return \Illuminate\Http\Response
+     * 
+     */
     public function index()
     {
         $characters = Character::all();
