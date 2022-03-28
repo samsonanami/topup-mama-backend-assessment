@@ -4,10 +4,14 @@
 namespace App\Http\Controllers;
 
 use App\Character;
-use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Resources\CharacterResource;
 
+/**
+ * 
+ * @group 2. Characters APIs
+ * 
+ */
 class CharacterController extends Controller
 {
     /**

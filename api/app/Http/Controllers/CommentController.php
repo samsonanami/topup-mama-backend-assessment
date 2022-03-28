@@ -7,6 +7,11 @@ use App\Comment;
 use Illuminate\Http\Request;
 use App\Http\Resources\CommentResource;
 
+/**
+ * 
+ * @group 3. Comments APIs
+ * 
+ */
 class CommentController extends Controller
 {
     public function index()

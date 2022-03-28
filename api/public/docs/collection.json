@@ -10,11 +10,618 @@
     ],
     "info": {
         "name": "Lumen",
-        "_postman_id": "6f8dd7fe-ef0b-44c4-8e3b-cb7063c1e3ba",
+        "_postman_id": "55111a14-6912-4c53-b32e-fdb8773b975d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
-    "item": [],
+    "item": [
+        {
+            "name": "3. Comments APIs",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/comment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comment"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/comment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/comment\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "nihil",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Trying to get property 'book_id' of non-object\",\n    \"exception\": \"ErrorException\",\n    \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n    \"line\": 140,\n    \"trace\": [\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RegistersExceptionHandlers.php\",\n            \"line\": 47,\n            \"function\": \"handleError\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n            \"line\": 140,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Resources\/CommentResource.php\",\n            \"line\": 12,\n            \"function\": \"__get\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 95,\n            \"function\": \"toArray\",\n            \"class\": \"App\\\\Http\\\\Resources\\\\CommentResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 242,\n            \"function\": \"resolve\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 80,\n            \"function\": \"jsonSerialize\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/http-foundation\/JsonResponse.php\",\n            \"line\": 54,\n            \"function\": \"setData\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 32,\n            \"function\": \"__construct\",\n            \"class\": \"Symfony\\\\Component\\\\HttpFoundation\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Http\/ResponseFactory.php\",\n            \"line\": 40,\n            \"function\": \"__construct\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Controllers\/CommentController.php\",\n            \"line\": 35,\n            \"function\": \"json\",\n            \"class\": \"Laravel\\\\Lumen\\\\Http\\\\ResponseFactory\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"show\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\CommentController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 389,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 355,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 329,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 282,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 267,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 237,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 173,\n            \"function\": \"handleDispatcherResponse\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 429,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 117,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 75,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 51,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 50,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1015,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Console\/Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/comment\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "fugiat",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/comment\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "dolores",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "1. Books APIs",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET Books",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/book",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/book"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Display a listing of the books.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id\":2,\"name\":\"A Game of Thrones\",\"isbn\":\"978-0553103540\",\"authors\":\"[\\\"George R. R. Martin\\\"]\",\"character_id\":1,\"pov_character_id\":1,\"numberOfPages\":694,\"publisher\":\"Bantam Books\",\"country\":\"United States\",\"mediaType\":\"Hardcover\",\"released\":\"1996-08-01 00:00:00\",\"comment_count\":0,\"povCharacters\":[],\"characters\":[],\"comments\":[],\"created_at\":\"2022-03-27T19:41:09.000000Z\",\"updated_at\":\"2022-03-27T19:41:09.000000Z\"}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add a word to the list.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/book",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/book"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to add a word to the list. It's a really useful endpoint,\nand you should play around with it for a bit.\n<aside class=\"notice\">We mean it; you really should.\ud83d\ude15<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/book\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/book\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/book\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "facilis",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Trying to get property 'id' of non-object\",\n    \"exception\": \"ErrorException\",\n    \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n    \"line\": 140,\n    \"trace\": [\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RegistersExceptionHandlers.php\",\n            \"line\": 47,\n            \"function\": \"handleError\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n            \"line\": 140,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Resources\/BookResource.php\",\n            \"line\": 12,\n            \"function\": \"__get\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 95,\n            \"function\": \"toArray\",\n            \"class\": \"App\\\\Http\\\\Resources\\\\BookResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 242,\n            \"function\": \"resolve\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 80,\n            \"function\": \"jsonSerialize\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/http-foundation\/JsonResponse.php\",\n            \"line\": 54,\n            \"function\": \"setData\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 32,\n            \"function\": \"__construct\",\n            \"class\": \"Symfony\\\\Component\\\\HttpFoundation\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Http\/ResponseFactory.php\",\n            \"line\": 40,\n            \"function\": \"__construct\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Controllers\/BookController.php\",\n            \"line\": 57,\n            \"function\": \"json\",\n            \"class\": \"Laravel\\\\Lumen\\\\Http\\\\ResponseFactory\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"show\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\BookController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 389,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 355,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 329,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 282,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 267,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 237,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 173,\n            \"function\": \"handleDispatcherResponse\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 429,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 117,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 75,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 51,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 50,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1015,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Console\/Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/book\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/book\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/book\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "nam",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/book\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/book\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/book\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "vel",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "2. Characters APIs",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET Books",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/character",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/character"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Display a listing of the books.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id\":1,\"name\":\"Jon Snow\",\"gender\":\"Male\",\"culture\":\"Northmen\",\"born\":\"In 283 AC\",\"died\":\"\\\"\\\"\",\"titles\":\"[\\\"Lord Commander of the Night's Watch\\\"]\",\"aliases\":\"[\\\"Lord Snow\\\", \\\"Ned Stark's Bastard\\\", \\\"The Snow of Winterfell\\\", \\\"The Crow-Come-Over\\\", \\\"The 998th Lord Commander of the Night's Watch\\\", \\\"The Bastard of Winterfell\\\", \\\"The Black Bastard of the Wall\\\", \\\"Lord Crow\\\"]\",\"father\":\"\",\"mother\":null,\"spouse\":null,\"allegiances\":null,\"books\":null,\"povBooks\":null,\"tvSeries\":null,\"playedBy\":null,\"created_at\":\"2022-03-27T19:41:01.000000Z\",\"updated_at\":\"2022-03-27T19:41:01.000000Z\"}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/character",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/character",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/character"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/character\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/character\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/character\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "quis",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Trying to get property 'name' of non-object\",\n    \"exception\": \"ErrorException\",\n    \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n    \"line\": 140,\n    \"trace\": [\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RegistersExceptionHandlers.php\",\n            \"line\": 47,\n            \"function\": \"handleError\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n            \"line\": 140,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Resources\/CharacterResource.php\",\n            \"line\": 12,\n            \"function\": \"__get\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 95,\n            \"function\": \"toArray\",\n            \"class\": \"App\\\\Http\\\\Resources\\\\CharacterResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 242,\n            \"function\": \"resolve\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 80,\n            \"function\": \"jsonSerialize\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/http-foundation\/JsonResponse.php\",\n            \"line\": 54,\n            \"function\": \"setData\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 32,\n            \"function\": \"__construct\",\n            \"class\": \"Symfony\\\\Component\\\\HttpFoundation\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Http\/ResponseFactory.php\",\n            \"line\": 40,\n            \"function\": \"__construct\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Controllers\/CharacterController.php\",\n            \"line\": 56,\n            \"function\": \"json\",\n            \"class\": \"Laravel\\\\Lumen\\\\Http\\\\ResponseFactory\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"show\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\CharacterController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 389,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 355,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 329,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 282,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 267,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 237,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 173,\n            \"function\": \"handleDispatcherResponse\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 429,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 117,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 75,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 51,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 50,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1015,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Console\/Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/character\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/character\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/character\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "deserunt",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/character\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/character\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/character\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "distinctio",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
     "auth": {
         "type": "noauth"
     }

@@ -9,7 +9,7 @@ use App\Http\Resources\BookResource;
 
 /**
  * 
- * @group Books APIs
+ * @group 1. Books APIs
  * 
  */
 class BookController extends Controller
