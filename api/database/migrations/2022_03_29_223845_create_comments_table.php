@@ -15,9 +15,14 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('book_id');
             $table->string('comment', 500);
             $table->ipAddress('commenter_ip');
             $table->timestamps();
+            /**
+             * Foreign keys
+             */
+            $table->foreign('book_id')->references('id')->on('books')->restrictOnDelete();
         }); 
     }
     /**

@@ -9,6 +9,7 @@ class BookResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'name' => $this->name,
             'isbn' => $this->isbn,
             'authors' => $this->authors,
@@ -23,6 +24,8 @@ class BookResource extends JsonResource
             'povCharacters'=>$this->povCharacters,
             'characters'=>$this->characters,
             'comments'=>$this->comments,
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at,
         ];
     }
 }

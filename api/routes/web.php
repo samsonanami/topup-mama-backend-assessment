@@ -12,7 +12,6 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
@@ -32,3 +31,11 @@ $router->post('/character', 'CharacterController@store');
 $router->get('/character/{id}', 'CharacterController@show');
 $router->put('/character/{id}', 'CharacterController@update');
 $router->delete('/character/{id}', 'CharacterController@destroy');
+/**
+ * Comment APIs
+ */
+$router->get('/comment', 'CommentController@index');
+$router->post('/comment', 'CommentController@store');
+$router->get('/comment/{id}', 'CommentController@show');
+$router->put('/comment/{id}', 'CommentController@update');
+$router->delete('/comment/{id}', 'CommentController@destroy');

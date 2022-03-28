@@ -7,9 +7,32 @@ use App\Book;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Resources\BookResource;
+use OpenApi\Annotations as OA;
 
 class BookController extends Controller
 {
+    /**
+     * @OA\Get(
+     *   path="/users",
+     *   summary="Return the list of users",
+     *   tags={"Hello"},
+     *   @OA\Parameter(ref="#/components/parameters/get_users_request_parameter_limit"),
+     *    @OA\Response(
+     *      response=200,
+     *      description="List of users",
+     *      @OA\JsonContent(
+     *        @OA\Property(
+     *          property="data",
+     *          description="List of users",
+     *          @OA\Schema(
+     *            type="array,
+     *            @OA\Items(ref="#/components/schemas/UserSchema")
+     *          )
+     *        )
+     *      )
+     *    )
+     * )
+     */
     public function index()
     {
         $books = Book::orderBy('released', 'asc')->get();
@@ -24,7 +47,9 @@ class BookController extends Controller
             'publisher' => 'required|string',
             'country' => 'string',
             'mediaType' => 'string',
-            'released' => 'string'
+            'released' => 'string',
+            'character_id' => 'integer|required|exists:characters,id',
+            'pov_character_id' => 'integer|required|exists:characters,id'
         ]);
         $book = Book::create($request->all());
         return response()->json(new BookResource($book));
