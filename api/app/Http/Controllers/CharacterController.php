@@ -16,11 +16,11 @@ class CharacterController extends Controller
 {
     /**
      * 
-     * GET Books
+     * List Characters
      * 
-     * Display a listing of the books.
+     * Display a listing of all the characters.
      *
-     * @return \Illuminate\Http\Response
+     * 
      * 
      */
     public function index()

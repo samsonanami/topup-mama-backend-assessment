@@ -2,20 +2,26 @@
 
 TopUp Mama Backend Engineer Assessment
 
-# Backend (API)
+## Backend (API)
 
 The app is PHP(Lumen) made and hosted on Google Cloud Platform (GCP) Instance
 
 Link:  https://app.bullapos.com/top-up-mama/api/public/
+Base URL : https://app.bullapos.com/top-up-mama/api/public/api/
 
-Documentation if done on Scribe
+Documentation is done on scribe
 
-Link: https://app.bullapos.com/top-up-mama/api/public/docs/
+Docs Link: https://app.bullapos.com/top-up-mama/api/public/docs/
 
 Plugin : https://github.com/knuckleswtf/scribe
 
-# Frontend
+## Frontend
 
-Created in Angula and hosted on GCP
+Created in Angular and hosted on GCP
 
-Link: https://app.bullapos.com/top-up-mama/frontend/
+Link: https://app.bullapos.com/top-up-mama/app/
+
+
+```
+npm run server
+```
