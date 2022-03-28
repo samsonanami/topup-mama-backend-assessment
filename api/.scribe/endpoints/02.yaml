@@ -68,7 +68,7 @@ endpoints:
         name: comment
         description: 'The comment detail or message itself.'
         required: false
-        example: quia
+        example: blanditiis
         type: string
         custom: []
       commenter_ip:
@@ -113,7 +113,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: sit
+        example: natus
         type: string
         custom: []
     queryParameters: []
@@ -509,7 +509,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: id
+        example: saepe
         type: string
         custom: []
     queryParameters: []
@@ -533,7 +533,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: voluptate
+        example: quia
         type: string
         custom: []
     queryParameters: []

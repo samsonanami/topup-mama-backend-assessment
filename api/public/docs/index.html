@@ -81,13 +81,13 @@
                         <a href="#1books-apis-POSTapi-book">Create Books</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="1books-apis-GETapi-book--id-">
-                        <a href="#1books-apis-GETapi-book--id-">GET api/book/{id}</a>
+                        <a href="#1books-apis-GETapi-book--id-">Show Books</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="1books-apis-PUTapi-book--id-">
-                        <a href="#1books-apis-PUTapi-book--id-">PUT api/book/{id}</a>
+                        <a href="#1books-apis-PUTapi-book--id-">Update Book</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="1books-apis-DELETEapi-book--id-">
-                        <a href="#1books-apis-DELETEapi-book--id-">DELETE api/book/{id}</a>
+                        <a href="#1books-apis-DELETEapi-book--id-">Delete Book</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -97,19 +97,19 @@
                 </li>
                                     <ul id="tocify-subheader-2characters-apis" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="2characters-apis-GETapi-character">
-                        <a href="#2characters-apis-GETapi-character">GET Books</a>
+                        <a href="#2characters-apis-GETapi-character">List Characters</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="2characters-apis-POSTapi-character">
-                        <a href="#2characters-apis-POSTapi-character">POST api/character</a>
+                        <a href="#2characters-apis-POSTapi-character">Update Character</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="2characters-apis-GETapi-character--id-">
-                        <a href="#2characters-apis-GETapi-character--id-">GET api/character/{id}</a>
+                        <a href="#2characters-apis-GETapi-character--id-">Show a character by ID</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="2characters-apis-PUTapi-character--id-">
-                        <a href="#2characters-apis-PUTapi-character--id-">PUT api/character/{id}</a>
+                        <a href="#2characters-apis-PUTapi-character--id-">Update Character</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="2characters-apis-DELETEapi-character--id-">
-                        <a href="#2characters-apis-DELETEapi-character--id-">DELETE api/character/{id}</a>
+                        <a href="#2characters-apis-DELETEapi-character--id-">Delete Character</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -174,7 +174,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 </p>
 
 <p>This endpoint display a listing of all the books.</p>
-<aside class="notice">No param is required</aside>
+<aside class="notice">No paramater is required</aside>
 
 <span id="example-requests-GETapi-book">
 <blockquote>Example request:</blockquote>
@@ -361,7 +361,36 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-book">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Book created!&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 7,
+        &quot;name&quot;: &quot;A Game of Thrones&quot;,
+        &quot;isbn&quot;: &quot;978-0553103540&quot;,
+        &quot;authors&quot;: &quot;[\&quot;George R. R. Martin\&quot;]&quot;,
+        &quot;character_id&quot;: &quot;1&quot;,
+        &quot;pov_character_id&quot;: &quot;1&quot;,
+        &quot;numberOfPages&quot;: &quot;694&quot;,
+        &quot;publisher&quot;: &quot;Bantam Books&quot;,
+        &quot;country&quot;: &quot;United States&quot;,
+        &quot;mediaType&quot;: &quot;Hardcover&quot;,
+        &quot;released&quot;: &quot;1996-08-01T00:00:00&quot;,
+        &quot;comment_count&quot;: 0,
+        &quot;povCharacters&quot;: [],
+        &quot;characters&quot;: [],
+        &quot;comments&quot;: [],
+        &quot;created_at&quot;: &quot;2022-03-28T16:47:12.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-03-28T16:47:12.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-book" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-book"></span>:
@@ -457,12 +486,12 @@ fetch(url, {
         </p>
         </form>
 
-            <h2 id="1books-apis-GETapi-book--id-">GET api/book/{id}</h2>
+            <h2 id="1books-apis-GETapi-book--id-">Show Books</h2>
 
 <p>
 </p>
 
-
+<p>This endpoint show a book by ID.</p>
 
 <span id="example-requests-GETapi-book--id-">
 <blockquote>Example request:</blockquote>
@@ -470,15 +499,21 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/book/et" \
+    --get "http://localhost/api/book/ut?id=2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/book/et"
+    "http://localhost/api/book/ut"
 );
+
+const params = {
+    "id": "2",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -494,381 +529,49 @@ fetch(url, {
 
 <span id="example-responses-GETapi-book--id-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
- </code></pre>
-        </details>         <pre>
+                <pre>
 
 <code class="language-json">{
-    &quot;message&quot;: &quot;Trying to get property 'id' of non-object&quot;,
-    &quot;exception&quot;: &quot;ErrorException&quot;,
-    &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php&quot;,
-    &quot;line&quot;: 140,
-    &quot;trace&quot;: [
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php&quot;,
-            &quot;line&quot;: 47,
-            &quot;function&quot;: &quot;handleError&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php&quot;,
-            &quot;line&quot;: 140,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/BookResource.php&quot;,
-            &quot;line&quot;: 12,
-            &quot;function&quot;: &quot;__get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;toArray&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Resources\\BookResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php&quot;,
-            &quot;line&quot;: 242,
-            &quot;function&quot;: &quot;resolve&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php&quot;,
-            &quot;line&quot;: 80,
-            &quot;function&quot;: &quot;jsonSerialize&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/http-foundation/JsonResponse.php&quot;,
-            &quot;line&quot;: 54,
-            &quot;function&quot;: &quot;setData&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\JsonResponse&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php&quot;,
-            &quot;line&quot;: 32,
-            &quot;function&quot;: &quot;__construct&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\HttpFoundation\\JsonResponse&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Http/ResponseFactory.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;__construct&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\JsonResponse&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/BookController.php&quot;,
-            &quot;line&quot;: 112,
-            &quot;function&quot;: &quot;json&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Http\\ResponseFactory&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;show&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\BookController&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 389,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 355,
-            &quot;function&quot;: &quot;callControllerCallable&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 329,
-            &quot;function&quot;: &quot;callLumenController&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 282,
-            &quot;function&quot;: &quot;callControllerAction&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 267,
-            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 237,
-            &quot;function&quot;: &quot;handleFoundRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 173,
-            &quot;function&quot;: &quot;handleDispatcherResponse&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 429,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 308,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 287,
-            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 89,
-            &quot;function&quot;: &quot;makeApiCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 45,
-            &quot;function&quot;: &quot;makeResponseCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 222,
-            &quot;function&quot;: &quot;__invoke&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 179,
-            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;fetchResponses&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 117,
-            &quot;function&quot;: &quot;processRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 75,
-            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 51,
-            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 50,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php&quot;,
-            &quot;line&quot;: 136,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Command/Command.php&quot;,
-            &quot;line&quot;: 298,
-            &quot;function&quot;: &quot;execute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php&quot;,
-            &quot;line&quot;: 121,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 1015,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 299,
-            &quot;function&quot;: &quot;doRunCommand&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 171,
-            &quot;function&quot;: &quot;doRun&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Application.php&quot;,
-            &quot;line&quot;: 94,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Console/Kernel.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/artisan&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        }
-    ]
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Book found!&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;A Game of Thrones&quot;,
+        &quot;isbn&quot;: &quot;978-0553103540&quot;,
+        &quot;authors&quot;: &quot;[\&quot;George R. R. Martin\&quot;]&quot;,
+        &quot;character_id&quot;: 1,
+        &quot;pov_character_id&quot;: 1,
+        &quot;numberOfPages&quot;: 694,
+        &quot;publisher&quot;: &quot;Bantam Books&quot;,
+        &quot;country&quot;: &quot;United States&quot;,
+        &quot;mediaType&quot;: &quot;Hardcover&quot;,
+        &quot;released&quot;: &quot;1996-08-01 00:00:00&quot;,
+        &quot;comment_count&quot;: 2,
+        &quot;povCharacters&quot;: [],
+        &quot;characters&quot;: [],
+        &quot;comments&quot;: [
+            {
+                &quot;id&quot;: 3,
+                &quot;book_id&quot;: 2,
+                &quot;comment&quot;: &quot;Test comment&quot;,
+                &quot;commenter_ip&quot;: &quot;192.168.1.112&quot;,
+                &quot;created_at&quot;: &quot;2022-03-28T11:27:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-03-28T11:27:13.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;book_id&quot;: 2,
+                &quot;comment&quot;: &quot;Test comment one&quot;,
+                &quot;commenter_ip&quot;: &quot;192.168.1.112&quot;,
+                &quot;created_at&quot;: &quot;2022-03-28T11:32:14.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-03-28T11:32:14.000000Z&quot;
+            }
+        ],
+        &quot;created_at&quot;: &quot;2022-03-27T19:41:09.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-03-27T19:41:09.000000Z&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -917,19 +620,30 @@ content-type: application/json
                 <input type="text"
                name="id"
                data-endpoint="GETapi-book--id-"
-               value="et"
+               value="ut"
                data-component="url" hidden>
     <br>
 
             </p>
-                    </form>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-book--id-"
+               value="2"
+               data-component="query" hidden>
+    <br>
+<p>The unique ID of a book.</p>
+            </p>
+                </form>
 
-            <h2 id="1books-apis-PUTapi-book--id-">PUT api/book/{id}</h2>
+            <h2 id="1books-apis-PUTapi-book--id-">Update Book</h2>
 
 <p>
 </p>
 
-
+<p>This endpoint updates a book by ID.</p>
 
 <span id="example-requests-PUTapi-book--id-">
 <blockquote>Example request:</blockquote>
@@ -937,30 +651,103 @@ content-type: application/json
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/book/sint" \
+    "http://localhost/api/book/dolore?id=2" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"A Game of Thrones\",
+    \"isbn\": \"978-0553103540\",
+    \"authors\": [
+        \"George R. R. Martin\"
+    ],
+    \"numberOfPages\": 694,
+    \"publisher\": \"Bantam Books\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/book/sint"
+    "http://localhost/api/book/dolore"
 );
+
+const params = {
+    "id": "2",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "A Game of Thrones",
+    "isbn": "978-0553103540",
+    "authors": [
+        "George R. R. Martin"
+    ],
+    "numberOfPages": 694,
+    "publisher": "Bantam Books"
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
 <span id="example-responses-PUTapi-book--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Book updated!&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;A Game of Thrones&quot;,
+        &quot;isbn&quot;: &quot;978-0553103540&quot;,
+        &quot;authors&quot;: &quot;[\&quot;George R. R. Martin\&quot;]&quot;,
+        &quot;character_id&quot;: &quot;1&quot;,
+        &quot;pov_character_id&quot;: &quot;1&quot;,
+        &quot;numberOfPages&quot;: &quot;694&quot;,
+        &quot;publisher&quot;: &quot;Bantam Books&quot;,
+        &quot;country&quot;: &quot;United States&quot;,
+        &quot;mediaType&quot;: &quot;Hardcover&quot;,
+        &quot;released&quot;: &quot;1996-08-01T00:00:00&quot;,
+        &quot;comment_count&quot;: 2,
+        &quot;povCharacters&quot;: [],
+        &quot;characters&quot;: [],
+        &quot;comments&quot;: [
+            {
+                &quot;id&quot;: 3,
+                &quot;book_id&quot;: 2,
+                &quot;comment&quot;: &quot;Test comment&quot;,
+                &quot;commenter_ip&quot;: &quot;192.168.1.112&quot;,
+                &quot;created_at&quot;: &quot;2022-03-28T11:27:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-03-28T11:27:13.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;book_id&quot;: 2,
+                &quot;comment&quot;: &quot;Test comment one&quot;,
+                &quot;commenter_ip&quot;: &quot;192.168.1.112&quot;,
+                &quot;created_at&quot;: &quot;2022-03-28T11:32:14.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-03-28T11:32:14.000000Z&quot;
+            }
+        ],
+        &quot;created_at&quot;: &quot;2022-03-27T19:41:09.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-03-28T16:55:37.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-book--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-book--id-"></span>:
@@ -1006,19 +793,84 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="PUTapi-book--id-"
-               value="sint"
+               value="dolore"
                data-component="url" hidden>
     <br>
 
             </p>
-                    </form>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-book--id-"
+               value="2"
+               data-component="query" hidden>
+    <br>
+<p>The unique ID of a book.</p>
+            </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-book--id-"
+               value="A Game of Thrones"
+               data-component="body" hidden>
+    <br>
+<p>The name of the book.</p>
+        </p>
+                <p>
+            <b><code>isbn</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="isbn"
+               data-endpoint="PUTapi-book--id-"
+               value="978-0553103540"
+               data-component="body" hidden>
+    <br>
+<p>The isbn number of the book.</p>
+        </p>
+                <p>
+            <b><code>authors</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="authors[0]"
+               data-endpoint="PUTapi-book--id-"
+               data-component="body" hidden>
+        <input type="text"
+               name="authors[1]"
+               data-endpoint="PUTapi-book--id-"
+               data-component="body" hidden>
+    <br>
+<p>List of authors of the book.</p>
+        </p>
+                <p>
+            <b><code>numberOfPages</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="numberOfPages"
+               data-endpoint="PUTapi-book--id-"
+               value="694"
+               data-component="body" hidden>
+    <br>
+<p>Number of pages in the book.</p>
+        </p>
+                <p>
+            <b><code>publisher</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="publisher"
+               data-endpoint="PUTapi-book--id-"
+               value="Bantam Books"
+               data-component="body" hidden>
+    <br>
+<p>The book's publisher.</p>
+        </p>
+        </form>
 
-            <h2 id="1books-apis-DELETEapi-book--id-">DELETE api/book/{id}</h2>
+            <h2 id="1books-apis-DELETEapi-book--id-">Delete Book</h2>
 
 <p>
 </p>
 
-
+<p>This endpoint delete a book by ID.</p>
 
 <span id="example-requests-DELETEapi-book--id-">
 <blockquote>Example request:</blockquote>
@@ -1026,15 +878,21 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/book/qui" \
+    "http://localhost/api/book/rem?id=2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/book/qui"
+    "http://localhost/api/book/rem"
 );
+
+const params = {
+    "id": "2",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -1049,7 +907,53 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-book--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Book deleted!&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;A Game of Thrones&quot;,
+        &quot;isbn&quot;: &quot;978-0553103540&quot;,
+        &quot;authors&quot;: &quot;[\&quot;George R. R. Martin\&quot;]&quot;,
+        &quot;character_id&quot;: 1,
+        &quot;pov_character_id&quot;: 1,
+        &quot;numberOfPages&quot;: 694,
+        &quot;publisher&quot;: &quot;Bantam Books&quot;,
+        &quot;country&quot;: &quot;United States&quot;,
+        &quot;mediaType&quot;: &quot;Hardcover&quot;,
+        &quot;released&quot;: &quot;1996-08-01 00:00:00&quot;,
+        &quot;comment_count&quot;: 2,
+        &quot;povCharacters&quot;: [],
+        &quot;characters&quot;: [],
+        &quot;comments&quot;: [
+            {
+                &quot;id&quot;: 3,
+                &quot;book_id&quot;: 2,
+                &quot;comment&quot;: &quot;Test comment&quot;,
+                &quot;commenter_ip&quot;: &quot;192.168.1.112&quot;,
+                &quot;created_at&quot;: &quot;2022-03-28T11:27:13.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-03-28T11:27:13.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;book_id&quot;: 2,
+                &quot;comment&quot;: &quot;Test comment one&quot;,
+                &quot;commenter_ip&quot;: &quot;192.168.1.112&quot;,
+                &quot;created_at&quot;: &quot;2022-03-28T11:32:14.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-03-28T11:32:14.000000Z&quot;
+            }
+        ],
+        &quot;created_at&quot;: &quot;2022-03-27T19:41:09.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-03-27T19:41:09.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-book--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-book--id-"></span>:
@@ -1095,23 +999,34 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="DELETEapi-book--id-"
-               value="qui"
+               value="rem"
                data-component="url" hidden>
     <br>
 
             </p>
-                    </form>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-book--id-"
+               value="2"
+               data-component="query" hidden>
+    <br>
+<p>The unique ID of a book.</p>
+            </p>
+                </form>
 
         <h1 id="2characters-apis">2.Characters APIs</h1>
 
     
 
-            <h2 id="2characters-apis-GETapi-character">GET Books</h2>
+            <h2 id="2characters-apis-GETapi-character">List Characters</h2>
 
 <p>
 </p>
 
-<p>Display a listing of the books.</p>
+<p>Display a listing of all the characters.</p>
 
 <span id="example-requests-GETapi-character">
 <blockquote>Example request:</blockquote>
@@ -1145,37 +1060,31 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
- </code></pre>
-        </details>         <pre>
+                <pre>
 
-<code class="language-json">[
-    {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;Jon Snow&quot;,
-        &quot;gender&quot;: &quot;Male&quot;,
-        &quot;culture&quot;: &quot;Northmen&quot;,
-        &quot;born&quot;: &quot;In 283 AC&quot;,
-        &quot;died&quot;: &quot;\&quot;\&quot;&quot;,
-        &quot;titles&quot;: &quot;[\&quot;Lord Commander of the Night's Watch\&quot;]&quot;,
-        &quot;aliases&quot;: &quot;[\&quot;Lord Snow\&quot;, \&quot;Ned Stark's Bastard\&quot;, \&quot;The Snow of Winterfell\&quot;, \&quot;The Crow-Come-Over\&quot;, \&quot;The 998th Lord Commander of the Night's Watch\&quot;, \&quot;The Bastard of Winterfell\&quot;, \&quot;The Black Bastard of the Wall\&quot;, \&quot;Lord Crow\&quot;]&quot;,
-        &quot;father&quot;: &quot;&quot;,
-        &quot;mother&quot;: null,
-        &quot;spouse&quot;: null,
-        &quot;allegiances&quot;: null,
-        &quot;books&quot;: null,
-        &quot;povBooks&quot;: null,
-        &quot;tvSeries&quot;: null,
-        &quot;playedBy&quot;: null,
-        &quot;created_at&quot;: &quot;2022-03-27T19:41:01.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2022-03-27T19:41:01.000000Z&quot;
-    }
-]</code>
+<code class="language-json">{
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Characters found!&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;: &quot;Jon Snow&quot;,
+            &quot;gender&quot;: &quot;Male&quot;,
+            &quot;culture&quot;: &quot;Northmen&quot;,
+            &quot;born&quot;: &quot;In 283 AC&quot;,
+            &quot;died&quot;: &quot;\&quot;\&quot;&quot;,
+            &quot;titles&quot;: &quot;[\&quot;Lord Commander of the Night's Watch\&quot;]&quot;,
+            &quot;aliases&quot;: &quot;[\&quot;Lord Snow\&quot;, \&quot;Ned Stark's Bastard\&quot;, \&quot;The Snow of Winterfell\&quot;, \&quot;The Crow-Come-Over\&quot;, \&quot;The 998th Lord Commander of the Night's Watch\&quot;, \&quot;The Bastard of Winterfell\&quot;, \&quot;The Black Bastard of the Wall\&quot;, \&quot;Lord Crow\&quot;]&quot;,
+            &quot;father&quot;: &quot;&quot;,
+            &quot;mother&quot;: null,
+            &quot;spouse&quot;: null,
+            &quot;allegiances&quot;: null,
+            &quot;books&quot;: null,
+            &quot;povBooks&quot;: null,
+            &quot;tvSeries&quot;: null,
+            &quot;playedBy&quot;: null
+        }
+    ]
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-character" hidden>
@@ -1219,12 +1128,12 @@ content-type: application/json
         </p>
                     </form>
 
-            <h2 id="2characters-apis-POSTapi-character">POST api/character</h2>
+            <h2 id="2characters-apis-POSTapi-character">Update Character</h2>
 
 <p>
 </p>
 
-
+<p>This endpoint creates a character</p>
 
 <span id="example-requests-POSTapi-character">
 <blockquote>Example request:</blockquote>
@@ -1234,7 +1143,24 @@ content-type: application/json
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/character" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Jon Snow\",
+    \"gender\": \"Male\",
+    \"culture\": \"Northmen\",
+    \"born\": \"In 283 AC\",
+    \"titles\": [
+        \"Lord Commander of the Night\'s Watch\"
+    ],
+    \"aliases\": [
+        \"Lord Snow\",
+        \"Ned Stark\'s Bastard\"
+    ],
+    \"father\": \"ipsum\",
+    \"mother\": \"cum\",
+    \"spouse\": \"aut\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1247,15 +1173,62 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "Jon Snow",
+    "gender": "Male",
+    "culture": "Northmen",
+    "born": "In 283 AC",
+    "titles": [
+        "Lord Commander of the Night's Watch"
+    ],
+    "aliases": [
+        "Lord Snow",
+        "Ned Stark's Bastard"
+    ],
+    "father": "ipsum",
+    "mother": "cum",
+    "spouse": "aut"
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
 <span id="example-responses-POSTapi-character">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Character updated!&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;: &quot;Jon Snow&quot;,
+            &quot;gender&quot;: &quot;Male&quot;,
+            &quot;culture&quot;: &quot;Northmen&quot;,
+            &quot;born&quot;: &quot;In 283 AC&quot;,
+            &quot;died&quot;: &quot;\&quot;\&quot;&quot;,
+            &quot;titles&quot;: &quot;[\&quot;Lord Commander of the Night's Watch\&quot;]&quot;,
+            &quot;aliases&quot;: &quot;[\&quot;Lord Snow\&quot;, \&quot;Ned Stark's Bastard\&quot;, \&quot;The Snow of Winterfell\&quot;, \&quot;The Crow-Come-Over\&quot;, \&quot;The 998th Lord Commander of the Night's Watch\&quot;, \&quot;The Bastard of Winterfell\&quot;, \&quot;The Black Bastard of the Wall\&quot;, \&quot;Lord Crow\&quot;]&quot;,
+            &quot;father&quot;: &quot;&quot;,
+            &quot;mother&quot;: null,
+            &quot;spouse&quot;: null,
+            &quot;allegiances&quot;: null,
+            &quot;books&quot;: null,
+            &quot;povBooks&quot;: null,
+            &quot;tvSeries&quot;: null,
+            &quot;playedBy&quot;: null
+        }
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-character" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-character"></span>:
@@ -1295,14 +1268,111 @@ fetch(url, {
             <small class="badge badge-black">POST</small>
             <b><code>api/character</code></b>
         </p>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-character"
+               value="Jon Snow"
+               data-component="body" hidden>
+    <br>
+<p>The name of the character.</p>
+        </p>
+                <p>
+            <b><code>gender</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="gender"
+               data-endpoint="POSTapi-character"
+               value="Male"
+               data-component="body" hidden>
+    <br>
+<p>The gender  of the character.</p>
+        </p>
+                <p>
+            <b><code>culture</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="culture"
+               data-endpoint="POSTapi-character"
+               value="Northmen"
+               data-component="body" hidden>
+    <br>
+<p>The culture of the character.</p>
+        </p>
+                <p>
+            <b><code>born</code></b>&nbsp;&nbsp;<small>date</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="born"
+               data-endpoint="POSTapi-character"
+               value="In 283 AC"
+               data-component="body" hidden>
+    <br>
+<p>The date of birth of the character.</p>
+        </p>
+                <p>
+            <b><code>titles</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="titles[0]"
+               data-endpoint="POSTapi-character"
+               data-component="body" hidden>
+        <input type="text"
+               name="titles[1]"
+               data-endpoint="POSTapi-character"
+               data-component="body" hidden>
+    <br>
+<p>The titles of the character.</p>
+        </p>
+                <p>
+            <b><code>aliases</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="aliases[0]"
+               data-endpoint="POSTapi-character"
+               data-component="body" hidden>
+        <input type="text"
+               name="aliases[1]"
+               data-endpoint="POSTapi-character"
+               data-component="body" hidden>
+    <br>
+<p>The aliases of the character.</p>
+        </p>
+                <p>
+            <b><code>father</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="father"
+               data-endpoint="POSTapi-character"
+               value="ipsum"
+               data-component="body" hidden>
+    <br>
+<p>The father of the character.</p>
+        </p>
+                <p>
+            <b><code>mother</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="mother"
+               data-endpoint="POSTapi-character"
+               value="cum"
+               data-component="body" hidden>
+    <br>
+<p>The mother of the character.</p>
+        </p>
+                <p>
+            <b><code>spouse</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="spouse"
+               data-endpoint="POSTapi-character"
+               value="aut"
+               data-component="body" hidden>
+    <br>
+<p>The spouse of the character.</p>
+        </p>
+        </form>
 
-            <h2 id="2characters-apis-GETapi-character--id-">GET api/character/{id}</h2>
+            <h2 id="2characters-apis-GETapi-character--id-">Show a character by ID</h2>
 
 <p>
 </p>
 
-
+<p>Display a single character by it's unique ID.</p>
 
 <span id="example-requests-GETapi-character--id-">
 <blockquote>Example request:</blockquote>
@@ -1310,14 +1380,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/character/facilis" \
+    --get "http://localhost/api/character/expedita" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/character/facilis"
+    "http://localhost/api/character/expedita"
 );
 
 const headers = {
@@ -1334,379 +1404,30 @@ fetch(url, {
 
 <span id="example-responses-GETapi-character--id-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
- </code></pre>
-        </details>         <pre>
+                <pre>
 
 <code class="language-json">{
-    &quot;message&quot;: &quot;Trying to get property 'name' of non-object&quot;,
-    &quot;exception&quot;: &quot;ErrorException&quot;,
-    &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php&quot;,
-    &quot;line&quot;: 140,
-    &quot;trace&quot;: [
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Character found!&quot;,
+    &quot;data&quot;: [
         {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php&quot;,
-            &quot;line&quot;: 47,
-            &quot;function&quot;: &quot;handleError&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php&quot;,
-            &quot;line&quot;: 140,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/CharacterResource.php&quot;,
-            &quot;line&quot;: 12,
-            &quot;function&quot;: &quot;__get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;toArray&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Resources\\CharacterResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php&quot;,
-            &quot;line&quot;: 242,
-            &quot;function&quot;: &quot;resolve&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php&quot;,
-            &quot;line&quot;: 80,
-            &quot;function&quot;: &quot;jsonSerialize&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Resources\\Json\\JsonResource&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/http-foundation/JsonResponse.php&quot;,
-            &quot;line&quot;: 54,
-            &quot;function&quot;: &quot;setData&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\JsonResponse&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php&quot;,
-            &quot;line&quot;: 32,
-            &quot;function&quot;: &quot;__construct&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\HttpFoundation\\JsonResponse&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Http/ResponseFactory.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;__construct&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\JsonResponse&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/CharacterController.php&quot;,
-            &quot;line&quot;: 56,
-            &quot;function&quot;: &quot;json&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Http\\ResponseFactory&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;show&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\CharacterController&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 389,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 355,
-            &quot;function&quot;: &quot;callControllerCallable&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 329,
-            &quot;function&quot;: &quot;callLumenController&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 282,
-            &quot;function&quot;: &quot;callControllerAction&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 267,
-            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 237,
-            &quot;function&quot;: &quot;handleFoundRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 173,
-            &quot;function&quot;: &quot;handleDispatcherResponse&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 429,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 308,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 287,
-            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 89,
-            &quot;function&quot;: &quot;makeApiCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 45,
-            &quot;function&quot;: &quot;makeResponseCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 222,
-            &quot;function&quot;: &quot;__invoke&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 179,
-            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;fetchResponses&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 117,
-            &quot;function&quot;: &quot;processRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 75,
-            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 51,
-            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 50,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php&quot;,
-            &quot;line&quot;: 136,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Command/Command.php&quot;,
-            &quot;line&quot;: 298,
-            &quot;function&quot;: &quot;execute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php&quot;,
-            &quot;line&quot;: 121,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 1015,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 299,
-            &quot;function&quot;: &quot;doRunCommand&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 171,
-            &quot;function&quot;: &quot;doRun&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Application.php&quot;,
-            &quot;line&quot;: 94,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Console/Kernel.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/apps/top-up-mama/api/artisan&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
+            &quot;name&quot;: &quot;Jon Snow&quot;,
+            &quot;gender&quot;: &quot;Male&quot;,
+            &quot;culture&quot;: &quot;Northmen&quot;,
+            &quot;born&quot;: &quot;In 283 AC&quot;,
+            &quot;died&quot;: &quot;\&quot;\&quot;&quot;,
+            &quot;titles&quot;: &quot;[\&quot;Lord Commander of the Night's Watch\&quot;]&quot;,
+            &quot;aliases&quot;: &quot;[\&quot;Lord Snow\&quot;, \&quot;Ned Stark's Bastard\&quot;, \&quot;The Snow of Winterfell\&quot;, \&quot;The Crow-Come-Over\&quot;, \&quot;The 998th Lord Commander of the Night's Watch\&quot;, \&quot;The Bastard of Winterfell\&quot;, \&quot;The Black Bastard of the Wall\&quot;, \&quot;Lord Crow\&quot;]&quot;,
+            &quot;father&quot;: &quot;&quot;,
+            &quot;mother&quot;: null,
+            &quot;spouse&quot;: null,
+            &quot;allegiances&quot;: null,
+            &quot;books&quot;: null,
+            &quot;povBooks&quot;: null,
+            &quot;tvSeries&quot;: null,
+            &quot;playedBy&quot;: null
         }
     ]
 }</code>
@@ -1757,19 +1478,19 @@ content-type: application/json
                 <input type="text"
                name="id"
                data-endpoint="GETapi-character--id-"
-               value="facilis"
+               value="expedita"
                data-component="url" hidden>
     <br>
 
             </p>
                     </form>
 
-            <h2 id="2characters-apis-PUTapi-character--id-">PUT api/character/{id}</h2>
+            <h2 id="2characters-apis-PUTapi-character--id-">Update Character</h2>
 
 <p>
 </p>
 
-
+<p>This endpoint allows you to update a character</p>
 
 <span id="example-requests-PUTapi-character--id-">
 <blockquote>Example request:</blockquote>
@@ -1777,30 +1498,100 @@ content-type: application/json
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/character/sit" \
+    "http://localhost/api/character/inventore?ID=3" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Jon Snow\",
+    \"gender\": \"Male\",
+    \"culture\": \"Northmen\",
+    \"born\": \"In 283 AC\",
+    \"titles\": [
+        \"Lord Commander of the Night\'s Watch\"
+    ],
+    \"aliases\": [
+        \"Lord Snow\",
+        \"Ned Stark\'s Bastard\"
+    ],
+    \"father\": \"sunt\",
+    \"mother\": \"tenetur\",
+    \"spouse\": \"totam\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/character/sit"
+    "http://localhost/api/character/inventore"
 );
+
+const params = {
+    "ID": "3",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "Jon Snow",
+    "gender": "Male",
+    "culture": "Northmen",
+    "born": "In 283 AC",
+    "titles": [
+        "Lord Commander of the Night's Watch"
+    ],
+    "aliases": [
+        "Lord Snow",
+        "Ned Stark's Bastard"
+    ],
+    "father": "sunt",
+    "mother": "tenetur",
+    "spouse": "totam"
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
 <span id="example-responses-PUTapi-character--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Character updated!&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;: &quot;Jon Snow&quot;,
+            &quot;gender&quot;: &quot;Male&quot;,
+            &quot;culture&quot;: &quot;Northmen&quot;,
+            &quot;born&quot;: &quot;In 283 AC&quot;,
+            &quot;died&quot;: &quot;\&quot;\&quot;&quot;,
+            &quot;titles&quot;: &quot;[\&quot;Lord Commander of the Night's Watch\&quot;]&quot;,
+            &quot;aliases&quot;: &quot;[\&quot;Lord Snow\&quot;, \&quot;Ned Stark's Bastard\&quot;, \&quot;The Snow of Winterfell\&quot;, \&quot;The Crow-Come-Over\&quot;, \&quot;The 998th Lord Commander of the Night's Watch\&quot;, \&quot;The Bastard of Winterfell\&quot;, \&quot;The Black Bastard of the Wall\&quot;, \&quot;Lord Crow\&quot;]&quot;,
+            &quot;father&quot;: &quot;&quot;,
+            &quot;mother&quot;: null,
+            &quot;spouse&quot;: null,
+            &quot;allegiances&quot;: null,
+            &quot;books&quot;: null,
+            &quot;povBooks&quot;: null,
+            &quot;tvSeries&quot;: null,
+            &quot;playedBy&quot;: null
+        }
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-character--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-character--id-"></span>:
@@ -1846,19 +1637,127 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="PUTapi-character--id-"
-               value="sit"
+               value="inventore"
                data-component="url" hidden>
     <br>
 
             </p>
-                    </form>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>ID</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="ID"
+               data-endpoint="PUTapi-character--id-"
+               value="3"
+               data-component="query" hidden>
+    <br>
+<p>The unique identifies for the character.</p>
+            </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-character--id-"
+               value="Jon Snow"
+               data-component="body" hidden>
+    <br>
+<p>The name of the character.</p>
+        </p>
+                <p>
+            <b><code>gender</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="gender"
+               data-endpoint="PUTapi-character--id-"
+               value="Male"
+               data-component="body" hidden>
+    <br>
+<p>The gender  of the character.</p>
+        </p>
+                <p>
+            <b><code>culture</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="culture"
+               data-endpoint="PUTapi-character--id-"
+               value="Northmen"
+               data-component="body" hidden>
+    <br>
+<p>The culture of the character.</p>
+        </p>
+                <p>
+            <b><code>born</code></b>&nbsp;&nbsp;<small>date</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="born"
+               data-endpoint="PUTapi-character--id-"
+               value="In 283 AC"
+               data-component="body" hidden>
+    <br>
+<p>The date of birth of the character.</p>
+        </p>
+                <p>
+            <b><code>titles</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="titles[0]"
+               data-endpoint="PUTapi-character--id-"
+               data-component="body" hidden>
+        <input type="text"
+               name="titles[1]"
+               data-endpoint="PUTapi-character--id-"
+               data-component="body" hidden>
+    <br>
+<p>The titles of the character.</p>
+        </p>
+                <p>
+            <b><code>aliases</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="aliases[0]"
+               data-endpoint="PUTapi-character--id-"
+               data-component="body" hidden>
+        <input type="text"
+               name="aliases[1]"
+               data-endpoint="PUTapi-character--id-"
+               data-component="body" hidden>
+    <br>
+<p>The aliases of the character.</p>
+        </p>
+                <p>
+            <b><code>father</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="father"
+               data-endpoint="PUTapi-character--id-"
+               value="sunt"
+               data-component="body" hidden>
+    <br>
+<p>The father of the character.</p>
+        </p>
+                <p>
+            <b><code>mother</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="mother"
+               data-endpoint="PUTapi-character--id-"
+               value="tenetur"
+               data-component="body" hidden>
+    <br>
+<p>The mother of the character.</p>
+        </p>
+                <p>
+            <b><code>spouse</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="spouse"
+               data-endpoint="PUTapi-character--id-"
+               value="totam"
+               data-component="body" hidden>
+    <br>
+<p>The spouse of the character.</p>
+        </p>
+        </form>
 
-            <h2 id="2characters-apis-DELETEapi-character--id-">DELETE api/character/{id}</h2>
+            <h2 id="2characters-apis-DELETEapi-character--id-">Delete Character</h2>
 
 <p>
 </p>
 
-
+<p>This endpoint allows you to delete a character</p>
 
 <span id="example-requests-DELETEapi-character--id-">
 <blockquote>Example request:</blockquote>
@@ -1866,15 +1765,21 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/character/quia" \
+    "http://localhost/api/character/vero?ID=3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/character/quia"
+    "http://localhost/api/character/vero"
 );
+
+const params = {
+    "ID": "3",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -1889,7 +1794,36 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-character--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Character deleted!&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;: &quot;Jon Snow&quot;,
+            &quot;gender&quot;: &quot;Male&quot;,
+            &quot;culture&quot;: &quot;Northmen&quot;,
+            &quot;born&quot;: &quot;In 283 AC&quot;,
+            &quot;died&quot;: &quot;\&quot;\&quot;&quot;,
+            &quot;titles&quot;: &quot;[\&quot;Lord Commander of the Night's Watch\&quot;]&quot;,
+            &quot;aliases&quot;: &quot;[\&quot;Lord Snow\&quot;, \&quot;Ned Stark's Bastard\&quot;, \&quot;The Snow of Winterfell\&quot;, \&quot;The Crow-Come-Over\&quot;, \&quot;The 998th Lord Commander of the Night's Watch\&quot;, \&quot;The Bastard of Winterfell\&quot;, \&quot;The Black Bastard of the Wall\&quot;, \&quot;Lord Crow\&quot;]&quot;,
+            &quot;father&quot;: &quot;&quot;,
+            &quot;mother&quot;: null,
+            &quot;spouse&quot;: null,
+            &quot;allegiances&quot;: null,
+            &quot;books&quot;: null,
+            &quot;povBooks&quot;: null,
+            &quot;tvSeries&quot;: null,
+            &quot;playedBy&quot;: null
+        }
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-character--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-character--id-"></span>:
@@ -1935,12 +1869,23 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="DELETEapi-character--id-"
-               value="quia"
+               value="vero"
                data-component="url" hidden>
     <br>
 
             </p>
-                    </form>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>ID</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="ID"
+               data-endpoint="DELETEapi-character--id-"
+               value="3"
+               data-component="query" hidden>
+    <br>
+<p>The unique identifies for the character.</p>
+            </p>
+                </form>
 
         <h1 id="3comments-apis">3.Comments APIs</h1>
 
@@ -2067,7 +2012,7 @@ fetch(url, {
     --header "Accept: application/json" \
     --data "{
     \"book_id\": 2,
-    \"comment\": \"quia\",
+    \"comment\": \"blanditiis\",
     \"commenter_ip\": \"192.168.1.112\"
 }"
 </code></pre></div>
@@ -2085,7 +2030,7 @@ const headers = {
 
 let body = {
     "book_id": 2,
-    "comment": "quia",
+    "comment": "blanditiis",
     "commenter_ip": "192.168.1.112"
 };
 
@@ -2171,7 +2116,7 @@ fetch(url, {
                 <input type="text"
                name="comment"
                data-endpoint="POSTapi-comment"
-               value="quia"
+               value="blanditiis"
                data-component="body" hidden>
     <br>
 <p>The comment detail or message itself.</p>
@@ -2201,14 +2146,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/comment/sit" \
+    --get "http://localhost/api/comment/natus" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comment/sit"
+    "http://localhost/api/comment/natus"
 );
 
 const headers = {
@@ -2648,7 +2593,7 @@ content-type: application/json
                 <input type="text"
                name="id"
                data-endpoint="GETapi-comment--id-"
-               value="sit"
+               value="natus"
                data-component="url" hidden>
     <br>
 
@@ -2668,14 +2613,14 @@ content-type: application/json
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/comment/id" \
+    "http://localhost/api/comment/saepe" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comment/id"
+    "http://localhost/api/comment/saepe"
 );
 
 const headers = {
@@ -2737,7 +2682,7 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="PUTapi-comment--id-"
-               value="id"
+               value="saepe"
                data-component="url" hidden>
     <br>
 
@@ -2757,14 +2702,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/comment/voluptate" \
+    "http://localhost/api/comment/quia" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comment/voluptate"
+    "http://localhost/api/comment/quia"
 );
 
 const headers = {
@@ -2826,7 +2771,7 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="DELETEapi-comment--id-"
-               value="voluptate"
+               value="quia"
                data-component="url" hidden>
     <br>
 

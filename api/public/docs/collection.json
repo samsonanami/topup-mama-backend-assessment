@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Lumen",
-        "_postman_id": "fca014ed-bdf5-4a6e-831b-270b4cdd0cb0",
+        "_postman_id": "c391c09a-d7d3-4b38-9749-77c7000a7f0d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -40,7 +40,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "This endpoint display a listing of all the books.\n<aside class=\"notice\">No param is required<\/aside>",
+                        "description": "This endpoint display a listing of all the books.\n<aside class=\"notice\">No paramater is required<\/aside>",
                         "auth": {
                             "type": "noauth"
                         }
@@ -89,21 +89,35 @@
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Book created!\",\n   \"data\": {\n       \"id\": 7,\n       \"name\": \"A Game of Thrones\",\n       \"isbn\": \"978-0553103540\",\n       \"authors\": \"[\\\"George R. R. Martin\\\"]\",\n       \"character_id\": \"1\",\n       \"pov_character_id\": \"1\",\n       \"numberOfPages\": \"694\",\n       \"publisher\": \"Bantam Books\",\n       \"country\": \"United States\",\n       \"mediaType\": \"Hardcover\",\n       \"released\": \"1996-08-01T00:00:00\",\n       \"comment_count\": 0,\n       \"povCharacters\": [],\n       \"characters\": [],\n       \"comments\": [],\n       \"created_at\": \"2022-03-28T16:47:12.000000Z\",\n       \"updated_at\": \"2022-03-28T16:47:12.000000Z\"\n   }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "api\/book\/{id}",
+                    "name": "Show Books",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/book\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/book\/:id",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The unique ID of a book.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/book\/:id?id=2",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "ut",
                                     "description": ""
                                 }
                             ]
@@ -120,42 +134,40 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "This endpoint show a book by ID.",
                         "auth": {
                             "type": "noauth"
                         }
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 500,
-                            "body": "{\n    \"message\": \"Trying to get property 'id' of non-object\",\n    \"exception\": \"ErrorException\",\n    \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n    \"line\": 140,\n    \"trace\": [\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RegistersExceptionHandlers.php\",\n            \"line\": 47,\n            \"function\": \"handleError\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n            \"line\": 140,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Resources\/BookResource.php\",\n            \"line\": 12,\n            \"function\": \"__get\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 95,\n            \"function\": \"toArray\",\n            \"class\": \"App\\\\Http\\\\Resources\\\\BookResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 242,\n            \"function\": \"resolve\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 80,\n            \"function\": \"jsonSerialize\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/http-foundation\/JsonResponse.php\",\n            \"line\": 54,\n            \"function\": \"setData\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 32,\n            \"function\": \"__construct\",\n            \"class\": \"Symfony\\\\Component\\\\HttpFoundation\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Http\/ResponseFactory.php\",\n            \"line\": 40,\n            \"function\": \"__construct\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Controllers\/BookController.php\",\n            \"line\": 112,\n            \"function\": \"json\",\n            \"class\": \"Laravel\\\\Lumen\\\\Http\\\\ResponseFactory\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"show\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\BookController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 389,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 355,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 329,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 282,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 267,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 237,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 173,\n            \"function\": \"handleDispatcherResponse\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 429,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 117,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 75,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 51,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 50,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1015,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Console\/Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Book found!\",\n   \"data\": {\n       \"id\": 2,\n       \"name\": \"A Game of Thrones\",\n       \"isbn\": \"978-0553103540\",\n       \"authors\": \"[\\\"George R. R. Martin\\\"]\",\n       \"character_id\": 1,\n       \"pov_character_id\": 1,\n       \"numberOfPages\": 694,\n       \"publisher\": \"Bantam Books\",\n       \"country\": \"United States\",\n       \"mediaType\": \"Hardcover\",\n       \"released\": \"1996-08-01 00:00:00\",\n       \"comment_count\": 2,\n       \"povCharacters\": [],\n       \"characters\": [],\n       \"comments\": [\n           {\n               \"id\": 3,\n               \"book_id\": 2,\n               \"comment\": \"Test comment\",\n               \"commenter_ip\": \"192.168.1.112\",\n               \"created_at\": \"2022-03-28T11:27:13.000000Z\",\n               \"updated_at\": \"2022-03-28T11:27:13.000000Z\"\n           },\n           {\n               \"id\": 4,\n               \"book_id\": 2,\n               \"comment\": \"Test comment one\",\n               \"commenter_ip\": \"192.168.1.112\",\n               \"created_at\": \"2022-03-28T11:32:14.000000Z\",\n               \"updated_at\": \"2022-03-28T11:32:14.000000Z\"\n           }\n       ],\n       \"created_at\": \"2022-03-27T19:41:09.000000Z\",\n       \"updated_at\": \"2022-03-27T19:41:09.000000Z\"\n   }\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "api\/book\/{id}",
+                    "name": "Update Book",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/book\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/book\/:id",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The unique ID of a book.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/book\/:id?id=2",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "sint",
+                                    "value": "dolore",
                                     "description": ""
                                 }
                             ]
@@ -171,27 +183,44 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"A Game of Thrones\",\"isbn\":\"978-0553103540\",\"authors\":[\"George R. R. Martin\"],\"numberOfPages\":694,\"publisher\":\"Bantam Books\"}"
+                        },
+                        "description": "This endpoint updates a book by ID.",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Book updated!\",\n   \"data\": {\n       \"id\": 2,\n       \"name\": \"A Game of Thrones\",\n       \"isbn\": \"978-0553103540\",\n       \"authors\": \"[\\\"George R. R. Martin\\\"]\",\n       \"character_id\": \"1\",\n       \"pov_character_id\": \"1\",\n       \"numberOfPages\": \"694\",\n       \"publisher\": \"Bantam Books\",\n       \"country\": \"United States\",\n       \"mediaType\": \"Hardcover\",\n       \"released\": \"1996-08-01T00:00:00\",\n       \"comment_count\": 2,\n       \"povCharacters\": [],\n       \"characters\": [],\n       \"comments\": [\n           {\n               \"id\": 3,\n               \"book_id\": 2,\n               \"comment\": \"Test comment\",\n               \"commenter_ip\": \"192.168.1.112\",\n               \"created_at\": \"2022-03-28T11:27:13.000000Z\",\n               \"updated_at\": \"2022-03-28T11:27:13.000000Z\"\n           },\n           {\n               \"id\": 4,\n               \"book_id\": 2,\n               \"comment\": \"Test comment one\",\n               \"commenter_ip\": \"192.168.1.112\",\n               \"created_at\": \"2022-03-28T11:32:14.000000Z\",\n               \"updated_at\": \"2022-03-28T11:32:14.000000Z\"\n           }\n       ],\n       \"created_at\": \"2022-03-27T19:41:09.000000Z\",\n       \"updated_at\": \"2022-03-28T16:55:37.000000Z\"\n   }\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "api\/book\/{id}",
+                    "name": "Delete Book",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/book\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/book\/:id",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The unique ID of a book.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/book\/:id?id=2",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "qui",
+                                    "value": "rem",
                                     "description": ""
                                 }
                             ]
@@ -208,12 +237,19 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "This endpoint delete a book by ID.",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Book deleted!\",\n   \"data\": {\n       \"id\": 2,\n       \"name\": \"A Game of Thrones\",\n       \"isbn\": \"978-0553103540\",\n       \"authors\": \"[\\\"George R. R. Martin\\\"]\",\n       \"character_id\": 1,\n       \"pov_character_id\": 1,\n       \"numberOfPages\": 694,\n       \"publisher\": \"Bantam Books\",\n       \"country\": \"United States\",\n       \"mediaType\": \"Hardcover\",\n       \"released\": \"1996-08-01 00:00:00\",\n       \"comment_count\": 2,\n       \"povCharacters\": [],\n       \"characters\": [],\n       \"comments\": [\n           {\n               \"id\": 3,\n               \"book_id\": 2,\n               \"comment\": \"Test comment\",\n               \"commenter_ip\": \"192.168.1.112\",\n               \"created_at\": \"2022-03-28T11:27:13.000000Z\",\n               \"updated_at\": \"2022-03-28T11:27:13.000000Z\"\n           },\n           {\n               \"id\": 4,\n               \"book_id\": 2,\n               \"comment\": \"Test comment one\",\n               \"commenter_ip\": \"192.168.1.112\",\n               \"created_at\": \"2022-03-28T11:32:14.000000Z\",\n               \"updated_at\": \"2022-03-28T11:32:14.000000Z\"\n           }\n       ],\n       \"created_at\": \"2022-03-27T19:41:09.000000Z\",\n       \"updated_at\": \"2022-03-27T19:41:09.000000Z\"\n   }\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -222,7 +258,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "GET Books",
+                    "name": "List Characters",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -242,31 +278,22 @@
                             }
                         ],
                         "body": null,
-                        "description": "Display a listing of the books.",
+                        "description": "Display a listing of all the characters.",
                         "auth": {
                             "type": "noauth"
                         }
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
+                            "header": [],
                             "code": 200,
-                            "body": "[{\"id\":1,\"name\":\"Jon Snow\",\"gender\":\"Male\",\"culture\":\"Northmen\",\"born\":\"In 283 AC\",\"died\":\"\\\"\\\"\",\"titles\":\"[\\\"Lord Commander of the Night's Watch\\\"]\",\"aliases\":\"[\\\"Lord Snow\\\", \\\"Ned Stark's Bastard\\\", \\\"The Snow of Winterfell\\\", \\\"The Crow-Come-Over\\\", \\\"The 998th Lord Commander of the Night's Watch\\\", \\\"The Bastard of Winterfell\\\", \\\"The Black Bastard of the Wall\\\", \\\"Lord Crow\\\"]\",\"father\":\"\",\"mother\":null,\"spouse\":null,\"allegiances\":null,\"books\":null,\"povBooks\":null,\"tvSeries\":null,\"playedBy\":null,\"created_at\":\"2022-03-27T19:41:01.000000Z\",\"updated_at\":\"2022-03-27T19:41:01.000000Z\"}]",
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Characters found!\",\n   \"data\": [\n       {\n           \"name\": \"Jon Snow\",\n           \"gender\": \"Male\",\n           \"culture\": \"Northmen\",\n           \"born\": \"In 283 AC\",\n           \"died\": \"\\\"\\\"\",\n           \"titles\": \"[\\\"Lord Commander of the Night's Watch\\\"]\",\n           \"aliases\": \"[\\\"Lord Snow\\\", \\\"Ned Stark's Bastard\\\", \\\"The Snow of Winterfell\\\", \\\"The Crow-Come-Over\\\", \\\"The 998th Lord Commander of the Night's Watch\\\", \\\"The Bastard of Winterfell\\\", \\\"The Black Bastard of the Wall\\\", \\\"Lord Crow\\\"]\",\n           \"father\": \"\",\n           \"mother\": null,\n           \"spouse\": null,\n           \"allegiances\": null,\n           \"books\": null,\n           \"povBooks\": null,\n           \"tvSeries\": null,\n           \"playedBy\": null\n       }\n   ]\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "api\/character",
+                    "name": "Update Character",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -285,16 +312,26 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Jon Snow\",\"gender\":\"Male\",\"culture\":\"Northmen\",\"born\":\"In 283 AC\",\"titles\":[\"Lord Commander of the Night's Watch\"],\"aliases\":[\"Lord Snow\",\"Ned Stark's Bastard\"],\"father\":\"ipsum\",\"mother\":\"cum\",\"spouse\":\"aut\"}"
+                        },
+                        "description": "This endpoint creates a character",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Character updated!\",\n   \"data\": [\n       {\n           \"name\": \"Jon Snow\",\n           \"gender\": \"Male\",\n           \"culture\": \"Northmen\",\n           \"born\": \"In 283 AC\",\n           \"died\": \"\\\"\\\"\",\n           \"titles\": \"[\\\"Lord Commander of the Night's Watch\\\"]\",\n           \"aliases\": \"[\\\"Lord Snow\\\", \\\"Ned Stark's Bastard\\\", \\\"The Snow of Winterfell\\\", \\\"The Crow-Come-Over\\\", \\\"The 998th Lord Commander of the Night's Watch\\\", \\\"The Bastard of Winterfell\\\", \\\"The Black Bastard of the Wall\\\", \\\"Lord Crow\\\"]\",\n           \"father\": \"\",\n           \"mother\": null,\n           \"spouse\": null,\n           \"allegiances\": null,\n           \"books\": null,\n           \"povBooks\": null,\n           \"tvSeries\": null,\n           \"playedBy\": null\n       }\n   ]\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "api\/character\/{id}",
+                    "name": "Show a character by ID",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -305,7 +342,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "facilis",
+                                    "value": "expedita",
                                     "description": ""
                                 }
                             ]
@@ -322,42 +359,40 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "Display a single character by it's unique ID.",
                         "auth": {
                             "type": "noauth"
                         }
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 500,
-                            "body": "{\n    \"message\": \"Trying to get property 'name' of non-object\",\n    \"exception\": \"ErrorException\",\n    \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n    \"line\": 140,\n    \"trace\": [\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RegistersExceptionHandlers.php\",\n            \"line\": 47,\n            \"function\": \"handleError\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/DelegatesToResource.php\",\n            \"line\": 140,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Resources\/CharacterResource.php\",\n            \"line\": 12,\n            \"function\": \"__get\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 95,\n            \"function\": \"toArray\",\n            \"class\": \"App\\\\Http\\\\Resources\\\\CharacterResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/Resources\/Json\/JsonResource.php\",\n            \"line\": 242,\n            \"function\": \"resolve\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 80,\n            \"function\": \"jsonSerialize\",\n            \"class\": \"Illuminate\\\\Http\\\\Resources\\\\Json\\\\JsonResource\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/http-foundation\/JsonResponse.php\",\n            \"line\": 54,\n            \"function\": \"setData\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/http\/JsonResponse.php\",\n            \"line\": 32,\n            \"function\": \"__construct\",\n            \"class\": \"Symfony\\\\Component\\\\HttpFoundation\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Http\/ResponseFactory.php\",\n            \"line\": 40,\n            \"function\": \"__construct\",\n            \"class\": \"Illuminate\\\\Http\\\\JsonResponse\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/app\/Http\/Controllers\/CharacterController.php\",\n            \"line\": 56,\n            \"function\": \"json\",\n            \"class\": \"Laravel\\\\Lumen\\\\Http\\\\ResponseFactory\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"show\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\CharacterController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 389,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 355,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 329,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 282,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 267,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 237,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 173,\n            \"function\": \"handleDispatcherResponse\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 429,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Concerns\/RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 117,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 75,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 51,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 50,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/container\/Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1015,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/illuminate\/console\/Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/vendor\/laravel\/lumen-framework\/src\/Console\/Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Applications\/MAMP\/htdocs\/apps\/top-up-mama\/api\/artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Character found!\",\n   \"data\": [\n       {\n           \"name\": \"Jon Snow\",\n           \"gender\": \"Male\",\n           \"culture\": \"Northmen\",\n           \"born\": \"In 283 AC\",\n           \"died\": \"\\\"\\\"\",\n           \"titles\": \"[\\\"Lord Commander of the Night's Watch\\\"]\",\n           \"aliases\": \"[\\\"Lord Snow\\\", \\\"Ned Stark's Bastard\\\", \\\"The Snow of Winterfell\\\", \\\"The Crow-Come-Over\\\", \\\"The 998th Lord Commander of the Night's Watch\\\", \\\"The Bastard of Winterfell\\\", \\\"The Black Bastard of the Wall\\\", \\\"Lord Crow\\\"]\",\n           \"father\": \"\",\n           \"mother\": null,\n           \"spouse\": null,\n           \"allegiances\": null,\n           \"books\": null,\n           \"povBooks\": null,\n           \"tvSeries\": null,\n           \"playedBy\": null\n       }\n   ]\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "api\/character\/{id}",
+                    "name": "Update Character",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/character\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/character\/:id",
+                            "query": [
+                                {
+                                    "key": "ID",
+                                    "value": "3",
+                                    "description": "The unique identifies for the character.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/character\/:id?ID=3",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "sit",
+                                    "value": "inventore",
                                     "description": ""
                                 }
                             ]
@@ -373,27 +408,44 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Jon Snow\",\"gender\":\"Male\",\"culture\":\"Northmen\",\"born\":\"In 283 AC\",\"titles\":[\"Lord Commander of the Night's Watch\"],\"aliases\":[\"Lord Snow\",\"Ned Stark's Bastard\"],\"father\":\"sunt\",\"mother\":\"tenetur\",\"spouse\":\"totam\"}"
+                        },
+                        "description": "This endpoint allows you to update a character",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Character updated!\",\n   \"data\": [\n       {\n           \"name\": \"Jon Snow\",\n           \"gender\": \"Male\",\n           \"culture\": \"Northmen\",\n           \"born\": \"In 283 AC\",\n           \"died\": \"\\\"\\\"\",\n           \"titles\": \"[\\\"Lord Commander of the Night's Watch\\\"]\",\n           \"aliases\": \"[\\\"Lord Snow\\\", \\\"Ned Stark's Bastard\\\", \\\"The Snow of Winterfell\\\", \\\"The Crow-Come-Over\\\", \\\"The 998th Lord Commander of the Night's Watch\\\", \\\"The Bastard of Winterfell\\\", \\\"The Black Bastard of the Wall\\\", \\\"Lord Crow\\\"]\",\n           \"father\": \"\",\n           \"mother\": null,\n           \"spouse\": null,\n           \"allegiances\": null,\n           \"books\": null,\n           \"povBooks\": null,\n           \"tvSeries\": null,\n           \"playedBy\": null\n       }\n   ]\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "api\/character\/{id}",
+                    "name": "Delete Character",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/character\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/character\/:id",
+                            "query": [
+                                {
+                                    "key": "ID",
+                                    "value": "3",
+                                    "description": "The unique identifies for the character.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/character\/:id?ID=3",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "quia",
+                                    "value": "vero",
                                     "description": ""
                                 }
                             ]
@@ -410,12 +462,19 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "This endpoint allows you to delete a character",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"status\": 200,\n   \"message\": \"Character deleted!\",\n   \"data\": [\n       {\n           \"name\": \"Jon Snow\",\n           \"gender\": \"Male\",\n           \"culture\": \"Northmen\",\n           \"born\": \"In 283 AC\",\n           \"died\": \"\\\"\\\"\",\n           \"titles\": \"[\\\"Lord Commander of the Night's Watch\\\"]\",\n           \"aliases\": \"[\\\"Lord Snow\\\", \\\"Ned Stark's Bastard\\\", \\\"The Snow of Winterfell\\\", \\\"The Crow-Come-Over\\\", \\\"The 998th Lord Commander of the Night's Watch\\\", \\\"The Bastard of Winterfell\\\", \\\"The Black Bastard of the Wall\\\", \\\"Lord Crow\\\"]\",\n           \"father\": \"\",\n           \"mother\": null,\n           \"spouse\": null,\n           \"allegiances\": null,\n           \"books\": null,\n           \"povBooks\": null,\n           \"tvSeries\": null,\n           \"playedBy\": null\n       }\n   ]\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -480,7 +539,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"book_id\":2,\"comment\":\"quia\",\"commenter_ip\":\"192.168.1.112\"}"
+                            "raw": "{\"book_id\":2,\"comment\":\"blanditiis\",\"commenter_ip\":\"192.168.1.112\"}"
                         },
                         "description": "This endpoint creates\/store a comment for a book.",
                         "auth": {
@@ -508,7 +567,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "sit",
+                                    "value": "natus",
                                     "description": ""
                                 }
                             ]
@@ -560,7 +619,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "id",
+                                    "value": "saepe",
                                     "description": ""
                                 }
                             ]
@@ -596,7 +655,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptate",
+                                    "value": "quia",
                                     "description": ""
                                 }
                             ]

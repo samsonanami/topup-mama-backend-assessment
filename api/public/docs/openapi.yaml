@@ -10,7 +10,7 @@ paths:
   /api/book:
     get:
       summary: 'List Books'
-      description: "This endpoint display a listing of all the books.\n<aside class=\"notice\">No param is required</aside>"
+      description: "This endpoint display a listing of all the books.\n<aside class=\"notice\">No paramater is required</aside>"
       parameters:
         -
           in: header
@@ -142,7 +142,61 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 200
+                  message: 'Book created!'
+                  data:
+                    id: 7
+                    name: 'A Game of Thrones'
+                    isbn: 978-0553103540
+                    authors: '["George R. R. Martin"]'
+                    character_id: '1'
+                    pov_character_id: '1'
+                    numberOfPages: '694'
+                    publisher: 'Bantam Books'
+                    country: 'United States'
+                    mediaType: Hardcover
+                    released: '1996-08-01T00:00:00'
+                    comment_count: 0
+                    povCharacters: []
+                    characters: []
+                    comments: []
+                    created_at: '2022-03-28T16:47:12.000000Z'
+                    updated_at: '2022-03-28T16:47:12.000000Z'
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Book created!'
+                  data:
+                    type: object
+                    example:
+                      id: 7
+                      name: 'A Game of Thrones'
+                      isbn: 978-0553103540
+                      authors: '["George R. R. Martin"]'
+                      character_id: '1'
+                      pov_character_id: '1'
+                      numberOfPages: '694'
+                      publisher: 'Bantam Books'
+                      country: 'United States'
+                      mediaType: Hardcover
+                      released: '1996-08-01T00:00:00'
+                      comment_count: 0
+                      povCharacters: []
+                      characters: []
+                      comments: []
+                      created_at: '2022-03-28T16:47:12.000000Z'
+                      updated_at: '2022-03-28T16:47:12.000000Z'
       tags:
         - '1.Books APIs'
       requestBody:
@@ -180,9 +234,19 @@ paths:
       security: []
   '/api/book/{id}':
     get:
-      summary: ''
-      description: ''
+      summary: 'Show Books'
+      description: 'This endpoint show a book by ID.'
       parameters:
+        -
+          in: query
+          name: id
+          description: 'The unique ID of a book.'
+          example: 2
+          required: true
+          schema:
+            type: integer
+            description: 'The unique ID of a book.'
+            example: 2
         -
           in: header
           name: Content-Type
@@ -198,655 +262,105 @@ paths:
           schema:
             type: string
       responses:
-        500:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'Trying to get property ''id'' of non-object'
-                  exception: ErrorException
-                  file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                  line: 140
-                  trace:
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php
-                      line: 47
-                      function: handleError
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                      line: 140
-                      function: 'Laravel\Lumen\Concerns\{closure}'
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/BookResource.php
-                      line: 12
-                      function: __get
-                      class: Illuminate\Http\Resources\Json\JsonResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                      line: 95
-                      function: toArray
-                      class: App\Http\Resources\BookResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                      line: 242
-                      function: resolve
-                      class: Illuminate\Http\Resources\Json\JsonResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                      line: 80
-                      function: jsonSerialize
-                      class: Illuminate\Http\Resources\Json\JsonResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/http-foundation/JsonResponse.php
-                      line: 54
-                      function: setData
-                      class: Illuminate\Http\JsonResponse
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                      line: 32
-                      function: __construct
-                      class: Symfony\Component\HttpFoundation\JsonResponse
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Http/ResponseFactory.php
-                      line: 40
-                      function: __construct
-                      class: Illuminate\Http\JsonResponse
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/BookController.php
-                      line: 112
-                      function: json
-                      class: Laravel\Lumen\Http\ResponseFactory
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 36
-                      function: show
-                      class: App\Http\Controllers\BookController
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                      line: 40
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                      line: 653
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 389
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 355
-                      function: callControllerCallable
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 329
-                      function: callLumenController
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 282
-                      function: callControllerAction
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 267
-                      function: callActionOnArrayBasedRoute
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 237
-                      function: handleFoundRoute
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 173
-                      function: handleDispatcherResponse
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 429
-                      function: 'Laravel\Lumen\Concerns\{closure}'
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 175
-                      function: sendThroughPipeline
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 95
-                      function: dispatch
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 308
-                      function: handle
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 287
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 89
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 45
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 222
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 179
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 116
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 117
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 75
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 51
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                      line: 50
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                      line: 40
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                      line: 653
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                      line: 136
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Command/Command.php
-                      line: 298
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                      line: 121
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                      line: 1015
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                      line: 299
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                      line: 171
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Application.php
-                      line: 94
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Console/Kernel.php
-                      line: 116
-                      function: run
-                      class: Illuminate\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/artisan
-                      line: 35
-                      function: handle
-                      class: Laravel\Lumen\Console\Kernel
-                      type: '->'
+                  status: 200
+                  message: 'Book found!'
+                  data:
+                    id: 2
+                    name: 'A Game of Thrones'
+                    isbn: 978-0553103540
+                    authors: '["George R. R. Martin"]'
+                    character_id: 1
+                    pov_character_id: 1
+                    numberOfPages: 694
+                    publisher: 'Bantam Books'
+                    country: 'United States'
+                    mediaType: Hardcover
+                    released: '1996-08-01 00:00:00'
+                    comment_count: 2
+                    povCharacters: []
+                    characters: []
+                    comments:
+                      -
+                        id: 3
+                        book_id: 2
+                        comment: 'Test comment'
+                        commenter_ip: 192.168.1.112
+                        created_at: '2022-03-28T11:27:13.000000Z'
+                        updated_at: '2022-03-28T11:27:13.000000Z'
+                      -
+                        id: 4
+                        book_id: 2
+                        comment: 'Test comment one'
+                        commenter_ip: 192.168.1.112
+                        created_at: '2022-03-28T11:32:14.000000Z'
+                        updated_at: '2022-03-28T11:32:14.000000Z'
+                    created_at: '2022-03-27T19:41:09.000000Z'
+                    updated_at: '2022-03-27T19:41:09.000000Z'
                 properties:
+                  status:
+                    type: integer
+                    example: 200
                   message:
                     type: string
-                    example: 'Trying to get property ''id'' of non-object'
-                  exception:
-                    type: string
-                    example: ErrorException
-                  file:
-                    type: string
-                    example: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                  line:
-                    type: integer
-                    example: 140
-                  trace:
-                    type: array
+                    example: 'Book found!'
+                  data:
+                    type: object
                     example:
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php
-                        line: 47
-                        function: handleError
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                        line: 140
-                        function: 'Laravel\Lumen\Concerns\{closure}'
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/BookResource.php
-                        line: 12
-                        function: __get
-                        class: Illuminate\Http\Resources\Json\JsonResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                        line: 95
-                        function: toArray
-                        class: App\Http\Resources\BookResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                        line: 242
-                        function: resolve
-                        class: Illuminate\Http\Resources\Json\JsonResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                        line: 80
-                        function: jsonSerialize
-                        class: Illuminate\Http\Resources\Json\JsonResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/http-foundation/JsonResponse.php
-                        line: 54
-                        function: setData
-                        class: Illuminate\Http\JsonResponse
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                        line: 32
-                        function: __construct
-                        class: Symfony\Component\HttpFoundation\JsonResponse
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Http/ResponseFactory.php
-                        line: 40
-                        function: __construct
-                        class: Illuminate\Http\JsonResponse
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/BookController.php
-                        line: 112
-                        function: json
-                        class: Laravel\Lumen\Http\ResponseFactory
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 36
-                        function: show
-                        class: App\Http\Controllers\BookController
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                        line: 40
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                        line: 653
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 389
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 355
-                        function: callControllerCallable
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 329
-                        function: callLumenController
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 282
-                        function: callControllerAction
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 267
-                        function: callActionOnArrayBasedRoute
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 237
-                        function: handleFoundRoute
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 173
-                        function: handleDispatcherResponse
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 429
-                        function: 'Laravel\Lumen\Concerns\{closure}'
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 175
-                        function: sendThroughPipeline
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 95
-                        function: dispatch
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 308
-                        function: handle
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 287
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 89
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 45
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 222
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 179
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 116
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 117
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 75
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 51
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                        line: 50
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                        line: 40
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                        line: 653
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                        line: 136
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Command/Command.php
-                        line: 298
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                        line: 121
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                        line: 1015
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                        line: 299
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                        line: 171
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Application.php
-                        line: 94
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Console/Kernel.php
-                        line: 116
-                        function: run
-                        class: Illuminate\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/artisan
-                        line: 35
-                        function: handle
-                        class: Laravel\Lumen\Console\Kernel
-                        type: '->'
-                    items:
-                      type: object
+                      id: 2
+                      name: 'A Game of Thrones'
+                      isbn: 978-0553103540
+                      authors: '["George R. R. Martin"]'
+                      character_id: 1
+                      pov_character_id: 1
+                      numberOfPages: 694
+                      publisher: 'Bantam Books'
+                      country: 'United States'
+                      mediaType: Hardcover
+                      released: '1996-08-01 00:00:00'
+                      comment_count: 2
+                      povCharacters: []
+                      characters: []
+                      comments:
+                        -
+                          id: 3
+                          book_id: 2
+                          comment: 'Test comment'
+                          commenter_ip: 192.168.1.112
+                          created_at: '2022-03-28T11:27:13.000000Z'
+                          updated_at: '2022-03-28T11:27:13.000000Z'
+                        -
+                          id: 4
+                          book_id: 2
+                          comment: 'Test comment one'
+                          commenter_ip: 192.168.1.112
+                          created_at: '2022-03-28T11:32:14.000000Z'
+                          updated_at: '2022-03-28T11:32:14.000000Z'
+                      created_at: '2022-03-27T19:41:09.000000Z'
+                      updated_at: '2022-03-27T19:41:09.000000Z'
       tags:
         - '1.Books APIs'
       security: []
     put:
-      summary: ''
-      description: ''
+      summary: 'Update Book'
+      description: 'This endpoint updates a book by ID.'
       parameters:
+        -
+          in: query
+          name: id
+          description: 'The unique ID of a book.'
+          example: 2
+          required: true
+          schema:
+            type: integer
+            description: 'The unique ID of a book.'
+            example: 2
         -
           in: header
           name: Content-Type
@@ -861,14 +375,138 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 200
+                  message: 'Book updated!'
+                  data:
+                    id: 2
+                    name: 'A Game of Thrones'
+                    isbn: 978-0553103540
+                    authors: '["George R. R. Martin"]'
+                    character_id: '1'
+                    pov_character_id: '1'
+                    numberOfPages: '694'
+                    publisher: 'Bantam Books'
+                    country: 'United States'
+                    mediaType: Hardcover
+                    released: '1996-08-01T00:00:00'
+                    comment_count: 2
+                    povCharacters: []
+                    characters: []
+                    comments:
+                      -
+                        id: 3
+                        book_id: 2
+                        comment: 'Test comment'
+                        commenter_ip: 192.168.1.112
+                        created_at: '2022-03-28T11:27:13.000000Z'
+                        updated_at: '2022-03-28T11:27:13.000000Z'
+                      -
+                        id: 4
+                        book_id: 2
+                        comment: 'Test comment one'
+                        commenter_ip: 192.168.1.112
+                        created_at: '2022-03-28T11:32:14.000000Z'
+                        updated_at: '2022-03-28T11:32:14.000000Z'
+                    created_at: '2022-03-27T19:41:09.000000Z'
+                    updated_at: '2022-03-28T16:55:37.000000Z'
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Book updated!'
+                  data:
+                    type: object
+                    example:
+                      id: 2
+                      name: 'A Game of Thrones'
+                      isbn: 978-0553103540
+                      authors: '["George R. R. Martin"]'
+                      character_id: '1'
+                      pov_character_id: '1'
+                      numberOfPages: '694'
+                      publisher: 'Bantam Books'
+                      country: 'United States'
+                      mediaType: Hardcover
+                      released: '1996-08-01T00:00:00'
+                      comment_count: 2
+                      povCharacters: []
+                      characters: []
+                      comments:
+                        -
+                          id: 3
+                          book_id: 2
+                          comment: 'Test comment'
+                          commenter_ip: 192.168.1.112
+                          created_at: '2022-03-28T11:27:13.000000Z'
+                          updated_at: '2022-03-28T11:27:13.000000Z'
+                        -
+                          id: 4
+                          book_id: 2
+                          comment: 'Test comment one'
+                          commenter_ip: 192.168.1.112
+                          created_at: '2022-03-28T11:32:14.000000Z'
+                          updated_at: '2022-03-28T11:32:14.000000Z'
+                      created_at: '2022-03-27T19:41:09.000000Z'
+                      updated_at: '2022-03-28T16:55:37.000000Z'
       tags:
         - '1.Books APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the book.'
+                  example: 'A Game of Thrones'
+                isbn:
+                  type: string
+                  description: 'The isbn number of the book.'
+                  example: 978-0553103540
+                authors:
+                  type: array
+                  description: 'List of authors of the book.'
+                  example:
+                    - 'George R. R. Martin'
+                  items:
+                    type: string
+                numberOfPages:
+                  type: number
+                  description: 'Number of pages in the book.'
+                  example: 694.0
+                publisher:
+                  type: string
+                  description: 'The book''s publisher.'
+                  example: 'Bantam Books'
+              required:
+                - name
       security: []
     delete:
-      summary: ''
-      description: ''
+      summary: 'Delete Book'
+      description: 'This endpoint delete a book by ID.'
       parameters:
+        -
+          in: query
+          name: id
+          description: 'The unique ID of a book.'
+          example: 2
+          required: true
+          schema:
+            type: integer
+            description: 'The unique ID of a book.'
+            example: 2
         -
           in: header
           name: Content-Type
@@ -883,7 +521,89 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 200
+                  message: 'Book deleted!'
+                  data:
+                    id: 2
+                    name: 'A Game of Thrones'
+                    isbn: 978-0553103540
+                    authors: '["George R. R. Martin"]'
+                    character_id: 1
+                    pov_character_id: 1
+                    numberOfPages: 694
+                    publisher: 'Bantam Books'
+                    country: 'United States'
+                    mediaType: Hardcover
+                    released: '1996-08-01 00:00:00'
+                    comment_count: 2
+                    povCharacters: []
+                    characters: []
+                    comments:
+                      -
+                        id: 3
+                        book_id: 2
+                        comment: 'Test comment'
+                        commenter_ip: 192.168.1.112
+                        created_at: '2022-03-28T11:27:13.000000Z'
+                        updated_at: '2022-03-28T11:27:13.000000Z'
+                      -
+                        id: 4
+                        book_id: 2
+                        comment: 'Test comment one'
+                        commenter_ip: 192.168.1.112
+                        created_at: '2022-03-28T11:32:14.000000Z'
+                        updated_at: '2022-03-28T11:32:14.000000Z'
+                    created_at: '2022-03-27T19:41:09.000000Z'
+                    updated_at: '2022-03-27T19:41:09.000000Z'
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Book deleted!'
+                  data:
+                    type: object
+                    example:
+                      id: 2
+                      name: 'A Game of Thrones'
+                      isbn: 978-0553103540
+                      authors: '["George R. R. Martin"]'
+                      character_id: 1
+                      pov_character_id: 1
+                      numberOfPages: 694
+                      publisher: 'Bantam Books'
+                      country: 'United States'
+                      mediaType: Hardcover
+                      released: '1996-08-01 00:00:00'
+                      comment_count: 2
+                      povCharacters: []
+                      characters: []
+                      comments:
+                        -
+                          id: 3
+                          book_id: 2
+                          comment: 'Test comment'
+                          commenter_ip: 192.168.1.112
+                          created_at: '2022-03-28T11:27:13.000000Z'
+                          updated_at: '2022-03-28T11:27:13.000000Z'
+                        -
+                          id: 4
+                          book_id: 2
+                          comment: 'Test comment one'
+                          commenter_ip: 192.168.1.112
+                          created_at: '2022-03-28T11:32:14.000000Z'
+                          updated_at: '2022-03-28T11:32:14.000000Z'
+                      created_at: '2022-03-27T19:41:09.000000Z'
+                      updated_at: '2022-03-27T19:41:09.000000Z'
       tags:
         - '1.Books APIs'
       security: []
@@ -892,14 +612,14 @@ paths:
         in: path
         name: id
         description: ''
-        example: et
+        example: ut
         required: true
         schema:
           type: string
   /api/character:
     get:
-      summary: 'GET Books'
-      description: 'Display a listing of the books.'
+      summary: 'List Characters'
+      description: 'Display a listing of all the characters.'
       parameters:
         -
           in: header
@@ -921,58 +641,61 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
+                type: object
                 example:
-                  -
-                    id: 1
-                    name: 'Jon Snow'
-                    gender: Male
-                    culture: Northmen
-                    born: 'In 283 AC'
-                    died: '""'
-                    titles: '["Lord Commander of the Night''s Watch"]'
-                    aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
-                    father: ''
-                    mother: null
-                    spouse: null
-                    allegiances: null
-                    books: null
-                    povBooks: null
-                    tvSeries: null
-                    playedBy: null
-                    created_at: '2022-03-27T19:41:01.000000Z'
-                    updated_at: '2022-03-27T19:41:01.000000Z'
+                  status: 200
+                  message: 'Characters found!'
+                  data:
+                    -
+                      name: 'Jon Snow'
+                      gender: Male
+                      culture: Northmen
+                      born: 'In 283 AC'
+                      died: '""'
+                      titles: '["Lord Commander of the Night''s Watch"]'
+                      aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                      father: ''
+                      mother: null
+                      spouse: null
+                      allegiances: null
+                      books: null
+                      povBooks: null
+                      tvSeries: null
+                      playedBy: null
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Characters found!'
+                  data:
+                    type: array
+                    example:
+                      -
+                        name: 'Jon Snow'
+                        gender: Male
+                        culture: Northmen
+                        born: 'In 283 AC'
+                        died: '""'
+                        titles: '["Lord Commander of the Night''s Watch"]'
+                        aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                        father: ''
+                        mother: null
+                        spouse: null
+                        allegiances: null
+                        books: null
+                        povBooks: null
+                        tvSeries: null
+                        playedBy: null
+                    items:
+                      type: object
       tags:
         - '2.Characters APIs'
       security: []
     post:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - '2.Characters APIs'
-      security: []
-  '/api/character/{id}':
-    get:
-      summary: ''
-      description: ''
+      summary: 'Update Character'
+      description: 'This endpoint creates a character'
       parameters:
         -
           in: header
@@ -989,655 +712,206 @@ paths:
           schema:
             type: string
       responses:
-        500:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'Trying to get property ''name'' of non-object'
-                  exception: ErrorException
-                  file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                  line: 140
-                  trace:
+                  status: 200
+                  message: 'Character updated!'
+                  data:
                     -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php
-                      line: 47
-                      function: handleError
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                      line: 140
-                      function: 'Laravel\Lumen\Concerns\{closure}'
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/CharacterResource.php
-                      line: 12
-                      function: __get
-                      class: Illuminate\Http\Resources\Json\JsonResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                      line: 95
-                      function: toArray
-                      class: App\Http\Resources\CharacterResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                      line: 242
-                      function: resolve
-                      class: Illuminate\Http\Resources\Json\JsonResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                      line: 80
-                      function: jsonSerialize
-                      class: Illuminate\Http\Resources\Json\JsonResource
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/http-foundation/JsonResponse.php
-                      line: 54
-                      function: setData
-                      class: Illuminate\Http\JsonResponse
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                      line: 32
-                      function: __construct
-                      class: Symfony\Component\HttpFoundation\JsonResponse
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Http/ResponseFactory.php
-                      line: 40
-                      function: __construct
-                      class: Illuminate\Http\JsonResponse
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/CharacterController.php
-                      line: 56
-                      function: json
-                      class: Laravel\Lumen\Http\ResponseFactory
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 36
-                      function: show
-                      class: App\Http\Controllers\CharacterController
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                      line: 40
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                      line: 653
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 389
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 355
-                      function: callControllerCallable
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 329
-                      function: callLumenController
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 282
-                      function: callControllerAction
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 267
-                      function: callActionOnArrayBasedRoute
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 237
-                      function: handleFoundRoute
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 173
-                      function: handleDispatcherResponse
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 429
-                      function: 'Laravel\Lumen\Concerns\{closure}'
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 175
-                      function: sendThroughPipeline
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                      line: 95
-                      function: dispatch
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 308
-                      function: handle
-                      class: Laravel\Lumen\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 287
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 89
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 45
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 222
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 179
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 116
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 117
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 75
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 51
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                      line: 50
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                      line: 40
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                      line: 653
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                      line: 136
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Command/Command.php
-                      line: 298
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                      line: 121
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                      line: 1015
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                      line: 299
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                      line: 171
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Application.php
-                      line: 94
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Console/Kernel.php
-                      line: 116
-                      function: run
-                      class: Illuminate\Console\Application
-                      type: '->'
-                    -
-                      file: /Applications/MAMP/htdocs/apps/top-up-mama/api/artisan
-                      line: 35
-                      function: handle
-                      class: Laravel\Lumen\Console\Kernel
-                      type: '->'
+                      name: 'Jon Snow'
+                      gender: Male
+                      culture: Northmen
+                      born: 'In 283 AC'
+                      died: '""'
+                      titles: '["Lord Commander of the Night''s Watch"]'
+                      aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                      father: ''
+                      mother: null
+                      spouse: null
+                      allegiances: null
+                      books: null
+                      povBooks: null
+                      tvSeries: null
+                      playedBy: null
                 properties:
+                  status:
+                    type: integer
+                    example: 200
                   message:
                     type: string
-                    example: 'Trying to get property ''name'' of non-object'
-                  exception:
-                    type: string
-                    example: ErrorException
-                  file:
-                    type: string
-                    example: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                  line:
-                    type: integer
-                    example: 140
-                  trace:
+                    example: 'Character updated!'
+                  data:
                     type: array
                     example:
                       -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php
-                        line: 47
-                        function: handleError
-                        class: Laravel\Lumen\Application
-                        type: '->'
+                        name: 'Jon Snow'
+                        gender: Male
+                        culture: Northmen
+                        born: 'In 283 AC'
+                        died: '""'
+                        titles: '["Lord Commander of the Night''s Watch"]'
+                        aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                        father: ''
+                        mother: null
+                        spouse: null
+                        allegiances: null
+                        books: null
+                        povBooks: null
+                        tvSeries: null
+                        playedBy: null
+                    items:
+                      type: object
+      tags:
+        - '2.Characters APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the character.'
+                  example: 'Jon Snow'
+                gender:
+                  type: string
+                  description: 'The gender  of the character.'
+                  example: Male
+                culture:
+                  type: string
+                  description: 'The culture of the character.'
+                  example: Northmen
+                born:
+                  type: date
+                  description: 'The date of birth of the character.'
+                  example: 'In 283 AC'
+                titles:
+                  type: array
+                  description: 'The titles of the character.'
+                  example:
+                    - 'Lord Commander of the Night''s Watch'
+                  items:
+                    type: string
+                aliases:
+                  type: array
+                  description: 'The aliases of the character.'
+                  example:
+                    - 'Lord Snow'
+                    - 'Ned Stark''s Bastard'
+                  items:
+                    type: string
+                father:
+                  type: string
+                  description: 'The father of the character.'
+                  example: ipsum
+                mother:
+                  type: string
+                  description: 'The mother of the character.'
+                  example: cum
+                spouse:
+                  type: string
+                  description: 'The spouse of the character.'
+                  example: aut
+              required:
+                - name
+      security: []
+  '/api/character/{id}':
+    get:
+      summary: 'Show a character by ID'
+      description: 'Display a single character by it''s unique ID.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 200
+                  message: 'Character found!'
+                  data:
+                    -
+                      name: 'Jon Snow'
+                      gender: Male
+                      culture: Northmen
+                      born: 'In 283 AC'
+                      died: '""'
+                      titles: '["Lord Commander of the Night''s Watch"]'
+                      aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                      father: ''
+                      mother: null
+                      spouse: null
+                      allegiances: null
+                      books: null
+                      povBooks: null
+                      tvSeries: null
+                      playedBy: null
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Character found!'
+                  data:
+                    type: array
+                    example:
                       -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php
-                        line: 140
-                        function: 'Laravel\Lumen\Concerns\{closure}'
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/CharacterResource.php
-                        line: 12
-                        function: __get
-                        class: Illuminate\Http\Resources\Json\JsonResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                        line: 95
-                        function: toArray
-                        class: App\Http\Resources\CharacterResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php
-                        line: 242
-                        function: resolve
-                        class: Illuminate\Http\Resources\Json\JsonResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                        line: 80
-                        function: jsonSerialize
-                        class: Illuminate\Http\Resources\Json\JsonResource
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/http-foundation/JsonResponse.php
-                        line: 54
-                        function: setData
-                        class: Illuminate\Http\JsonResponse
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php
-                        line: 32
-                        function: __construct
-                        class: Symfony\Component\HttpFoundation\JsonResponse
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Http/ResponseFactory.php
-                        line: 40
-                        function: __construct
-                        class: Illuminate\Http\JsonResponse
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/CharacterController.php
-                        line: 56
-                        function: json
-                        class: Laravel\Lumen\Http\ResponseFactory
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 36
-                        function: show
-                        class: App\Http\Controllers\CharacterController
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                        line: 40
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                        line: 653
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 389
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 355
-                        function: callControllerCallable
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 329
-                        function: callLumenController
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 282
-                        function: callControllerAction
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 267
-                        function: callActionOnArrayBasedRoute
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 237
-                        function: handleFoundRoute
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 173
-                        function: handleDispatcherResponse
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 429
-                        function: 'Laravel\Lumen\Concerns\{closure}'
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 175
-                        function: sendThroughPipeline
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php
-                        line: 95
-                        function: dispatch
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 308
-                        function: handle
-                        class: Laravel\Lumen\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 287
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 89
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 45
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 222
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 179
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 116
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 117
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 75
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 51
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                        line: 50
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php
-                        line: 40
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php
-                        line: 653
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                        line: 136
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Command/Command.php
-                        line: 298
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php
-                        line: 121
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                        line: 1015
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                        line: 299
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php
-                        line: 171
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Application.php
-                        line: 94
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Console/Kernel.php
-                        line: 116
-                        function: run
-                        class: Illuminate\Console\Application
-                        type: '->'
-                      -
-                        file: /Applications/MAMP/htdocs/apps/top-up-mama/api/artisan
-                        line: 35
-                        function: handle
-                        class: Laravel\Lumen\Console\Kernel
-                        type: '->'
+                        name: 'Jon Snow'
+                        gender: Male
+                        culture: Northmen
+                        born: 'In 283 AC'
+                        died: '""'
+                        titles: '["Lord Commander of the Night''s Watch"]'
+                        aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                        father: ''
+                        mother: null
+                        spouse: null
+                        allegiances: null
+                        books: null
+                        povBooks: null
+                        tvSeries: null
+                        playedBy: null
                     items:
                       type: object
       tags:
         - '2.Characters APIs'
       security: []
     put:
-      summary: ''
-      description: ''
+      summary: 'Update Character'
+      description: 'This endpoint allows you to update a character'
       parameters:
+        -
+          in: query
+          name: ID
+          description: 'The unique identifies for the character.'
+          example: 3
+          required: true
+          schema:
+            type: integer
+            description: 'The unique identifies for the character.'
+            example: 3
         -
           in: header
           name: Content-Type
@@ -1652,14 +926,130 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 200
+                  message: 'Character updated!'
+                  data:
+                    -
+                      name: 'Jon Snow'
+                      gender: Male
+                      culture: Northmen
+                      born: 'In 283 AC'
+                      died: '""'
+                      titles: '["Lord Commander of the Night''s Watch"]'
+                      aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                      father: ''
+                      mother: null
+                      spouse: null
+                      allegiances: null
+                      books: null
+                      povBooks: null
+                      tvSeries: null
+                      playedBy: null
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Character updated!'
+                  data:
+                    type: array
+                    example:
+                      -
+                        name: 'Jon Snow'
+                        gender: Male
+                        culture: Northmen
+                        born: 'In 283 AC'
+                        died: '""'
+                        titles: '["Lord Commander of the Night''s Watch"]'
+                        aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                        father: ''
+                        mother: null
+                        spouse: null
+                        allegiances: null
+                        books: null
+                        povBooks: null
+                        tvSeries: null
+                        playedBy: null
+                    items:
+                      type: object
       tags:
         - '2.Characters APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the character.'
+                  example: 'Jon Snow'
+                gender:
+                  type: string
+                  description: 'The gender  of the character.'
+                  example: Male
+                culture:
+                  type: string
+                  description: 'The culture of the character.'
+                  example: Northmen
+                born:
+                  type: date
+                  description: 'The date of birth of the character.'
+                  example: 'In 283 AC'
+                titles:
+                  type: array
+                  description: 'The titles of the character.'
+                  example:
+                    - 'Lord Commander of the Night''s Watch'
+                  items:
+                    type: string
+                aliases:
+                  type: array
+                  description: 'The aliases of the character.'
+                  example:
+                    - 'Lord Snow'
+                    - 'Ned Stark''s Bastard'
+                  items:
+                    type: string
+                father:
+                  type: string
+                  description: 'The father of the character.'
+                  example: sunt
+                mother:
+                  type: string
+                  description: 'The mother of the character.'
+                  example: tenetur
+                spouse:
+                  type: string
+                  description: 'The spouse of the character.'
+                  example: totam
+              required:
+                - name
       security: []
     delete:
-      summary: ''
-      description: ''
+      summary: 'Delete Character'
+      description: 'This endpoint allows you to delete a character'
       parameters:
+        -
+          in: query
+          name: ID
+          description: 'The unique identifies for the character.'
+          example: 3
+          required: true
+          schema:
+            type: integer
+            description: 'The unique identifies for the character.'
+            example: 3
         -
           in: header
           name: Content-Type
@@ -1674,7 +1064,61 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 200
+                  message: 'Character deleted!'
+                  data:
+                    -
+                      name: 'Jon Snow'
+                      gender: Male
+                      culture: Northmen
+                      born: 'In 283 AC'
+                      died: '""'
+                      titles: '["Lord Commander of the Night''s Watch"]'
+                      aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                      father: ''
+                      mother: null
+                      spouse: null
+                      allegiances: null
+                      books: null
+                      povBooks: null
+                      tvSeries: null
+                      playedBy: null
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Character deleted!'
+                  data:
+                    type: array
+                    example:
+                      -
+                        name: 'Jon Snow'
+                        gender: Male
+                        culture: Northmen
+                        born: 'In 283 AC'
+                        died: '""'
+                        titles: '["Lord Commander of the Night''s Watch"]'
+                        aliases: '["Lord Snow", "Ned Stark''s Bastard", "The Snow of Winterfell", "The Crow-Come-Over", "The 998th Lord Commander of the Night''s Watch", "The Bastard of Winterfell", "The Black Bastard of the Wall", "Lord Crow"]'
+                        father: ''
+                        mother: null
+                        spouse: null
+                        allegiances: null
+                        books: null
+                        povBooks: null
+                        tvSeries: null
+                        playedBy: null
+                    items:
+                      type: object
       tags:
         - '2.Characters APIs'
       security: []
@@ -1683,7 +1127,7 @@ paths:
         in: path
         name: id
         description: ''
-        example: facilis
+        example: expedita
         required: true
         schema:
           type: string
@@ -1759,7 +1203,7 @@ paths:
                 comment:
                   type: string
                   description: 'The comment detail or message itself.'
-                  example: quia
+                  example: blanditiis
                 commenter_ip:
                   type: ipAddress
                   description: 'The IP address of the commenter.'
@@ -2481,7 +1925,7 @@ paths:
         in: path
         name: id
         description: ''
-        example: sit
+        example: natus
         required: true
         schema:
           type: string

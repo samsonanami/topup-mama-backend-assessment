@@ -11,7 +11,7 @@ endpoints:
       title: 'List Books'
       description: |-
         This endpoint display a listing of all the books.
-        <aside class="notice">No param is required</aside>
+        <aside class="notice">No paramater is required</aside>
       authenticated: false
       custom: []
     headers:
@@ -127,15 +127,43 @@ endpoints:
         example: 'Bantam Books'
         type: string
         custom: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+             "status": 200,
+             "message": "Book created!",
+             "data": {
+                 "id": 7,
+                 "name": "A Game of Thrones",
+                 "isbn": "978-0553103540",
+                 "authors": "[\"George R. R. Martin\"]",
+                 "character_id": "1",
+                 "pov_character_id": "1",
+                 "numberOfPages": "694",
+                 "publisher": "Bantam Books",
+                 "country": "United States",
+                 "mediaType": "Hardcover",
+                 "released": "1996-08-01T00:00:00",
+                 "comment_count": 0,
+                 "povCharacters": [],
+                 "characters": [],
+                 "comments": [],
+                 "created_at": "2022-03-28T16:47:12.000000Z",
+                 "updated_at": "2022-03-28T16:47:12.000000Z"
+             }
+          }
+        headers: []
+        description: '200'
     responseFields: []
   -
     httpMethods:
       - GET
     uri: 'api/book/{id}'
     metadata:
-      title: ''
-      description: ''
+      title: 'Show Books'
+      description: 'This endpoint show a book by ID.'
       authenticated: false
       custom: []
     headers:
@@ -146,392 +174,72 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: et
+        example: ut
         type: string
         custom: []
-    queryParameters: []
+    queryParameters:
+      id:
+        name: id
+        description: 'The unique ID of a book.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
     bodyParameters: []
     responses:
       -
-        status: 500
+        status: 200
         content: |-
           {
-              "message": "Trying to get property 'id' of non-object",
-              "exception": "ErrorException",
-              "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php",
-              "line": 140,
-              "trace": [
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php",
-                      "line": 47,
-                      "function": "handleError",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php",
-                      "line": 140,
-                      "function": "Laravel\\Lumen\\Concerns\\{closure}",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/BookResource.php",
-                      "line": 12,
-                      "function": "__get",
-                      "class": "Illuminate\\Http\\Resources\\Json\\JsonResource",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php",
-                      "line": 95,
-                      "function": "toArray",
-                      "class": "App\\Http\\Resources\\BookResource",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php",
-                      "line": 242,
-                      "function": "resolve",
-                      "class": "Illuminate\\Http\\Resources\\Json\\JsonResource",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php",
-                      "line": 80,
-                      "function": "jsonSerialize",
-                      "class": "Illuminate\\Http\\Resources\\Json\\JsonResource",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/http-foundation/JsonResponse.php",
-                      "line": 54,
-                      "function": "setData",
-                      "class": "Illuminate\\Http\\JsonResponse",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/JsonResponse.php",
-                      "line": 32,
-                      "function": "__construct",
-                      "class": "Symfony\\Component\\HttpFoundation\\JsonResponse",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Http/ResponseFactory.php",
-                      "line": 40,
-                      "function": "__construct",
-                      "class": "Illuminate\\Http\\JsonResponse",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/BookController.php",
-                      "line": 112,
-                      "function": "json",
-                      "class": "Laravel\\Lumen\\Http\\ResponseFactory",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php",
-                      "line": 36,
-                      "function": "show",
-                      "class": "App\\Http\\Controllers\\BookController",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php",
-                      "line": 40,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php",
-                      "line": 37,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php",
-                      "line": 653,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 389,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 355,
-                      "function": "callControllerCallable",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 329,
-                      "function": "callLumenController",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 282,
-                      "function": "callControllerAction",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 267,
-                      "function": "callActionOnArrayBasedRoute",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 237,
-                      "function": "handleFoundRoute",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 173,
-                      "function": "handleDispatcherResponse",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 429,
-                      "function": "Laravel\\Lumen\\Concerns\\{closure}",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 175,
-                      "function": "sendThroughPipeline",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php",
-                      "line": 95,
-                      "function": "dispatch",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 308,
-                      "function": "handle",
-                      "class": "Laravel\\Lumen\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 287,
-                      "function": "callLaravelOrLumenRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 89,
-                      "function": "makeApiCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 45,
-                      "function": "makeResponseCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 35,
-                      "function": "makeResponseCallIfConditionsPass",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 222,
-                      "function": "__invoke",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 179,
-                      "function": "iterateThroughStrategies",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 116,
-                      "function": "fetchResponses",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 117,
-                      "function": "processRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 75,
-                      "function": "extractEndpointsInfoFromLaravelApp",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 51,
-                      "function": "extractEndpointsInfoAndWriteToDisk",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
-                      "line": 50,
-                      "function": "get",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php",
-                      "line": 36,
-                      "function": "handle",
-                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Util.php",
-                      "line": 40,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php",
-                      "line": 37,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/Container.php",
-                      "line": 653,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php",
-                      "line": 136,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Command/Command.php",
-                      "line": 298,
-                      "function": "execute",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Command.php",
-                      "line": 121,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Command\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php",
-                      "line": 1015,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php",
-                      "line": 299,
-                      "function": "doRunCommand",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/symfony/console/Application.php",
-                      "line": 171,
-                      "function": "doRun",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/console/Application.php",
-                      "line": 94,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/laravel/lumen-framework/src/Console/Kernel.php",
-                      "line": 116,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/artisan",
-                      "line": 35,
-                      "function": "handle",
-                      "class": "Laravel\\Lumen\\Console\\Kernel",
-                      "type": "->"
-                  }
-              ]
+             "status": 200,
+             "message": "Book found!",
+             "data": {
+                 "id": 2,
+                 "name": "A Game of Thrones",
+                 "isbn": "978-0553103540",
+                 "authors": "[\"George R. R. Martin\"]",
+                 "character_id": 1,
+                 "pov_character_id": 1,
+                 "numberOfPages": 694,
+                 "publisher": "Bantam Books",
+                 "country": "United States",
+                 "mediaType": "Hardcover",
+                 "released": "1996-08-01 00:00:00",
+                 "comment_count": 2,
+                 "povCharacters": [],
+                 "characters": [],
+                 "comments": [
+                     {
+                         "id": 3,
+                         "book_id": 2,
+                         "comment": "Test comment",
+                         "commenter_ip": "192.168.1.112",
+                         "created_at": "2022-03-28T11:27:13.000000Z",
+                         "updated_at": "2022-03-28T11:27:13.000000Z"
+                     },
+                     {
+                         "id": 4,
+                         "book_id": 2,
+                         "comment": "Test comment one",
+                         "commenter_ip": "192.168.1.112",
+                         "created_at": "2022-03-28T11:32:14.000000Z",
+                         "updated_at": "2022-03-28T11:32:14.000000Z"
+                     }
+                 ],
+                 "created_at": "2022-03-27T19:41:09.000000Z",
+                 "updated_at": "2022-03-27T19:41:09.000000Z"
+             }
           }
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-        description: null
+        headers: []
+        description: '200'
     responseFields: []
   -
     httpMethods:
       - PUT
     uri: 'api/book/{id}'
     metadata:
-      title: ''
-      description: ''
+      title: 'Update Book'
+      description: 'This endpoint updates a book by ID.'
       authenticated: false
       custom: []
     headers:
@@ -542,20 +250,108 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: sint
+        example: dolore
         type: string
         custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses: []
+    queryParameters:
+      id:
+        name: id
+        description: 'The unique ID of a book.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the book.'
+        required: true
+        example: 'A Game of Thrones'
+        type: string
+        custom: []
+      isbn:
+        name: isbn
+        description: 'The isbn number of the book.'
+        required: false
+        example: 978-0553103540
+        type: string
+        custom: []
+      authors:
+        name: authors
+        description: 'List of authors of the book.'
+        required: false
+        example:
+          - 'George R. R. Martin'
+        type: 'string[]'
+        custom: []
+      numberOfPages:
+        name: numberOfPages
+        description: 'Number of pages in the book.'
+        required: false
+        example: 694.0
+        type: number
+        custom: []
+      publisher:
+        name: publisher
+        description: 'The book''s publisher.'
+        required: false
+        example: 'Bantam Books'
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+             "status": 200,
+             "message": "Book updated!",
+             "data": {
+                 "id": 2,
+                 "name": "A Game of Thrones",
+                 "isbn": "978-0553103540",
+                 "authors": "[\"George R. R. Martin\"]",
+                 "character_id": "1",
+                 "pov_character_id": "1",
+                 "numberOfPages": "694",
+                 "publisher": "Bantam Books",
+                 "country": "United States",
+                 "mediaType": "Hardcover",
+                 "released": "1996-08-01T00:00:00",
+                 "comment_count": 2,
+                 "povCharacters": [],
+                 "characters": [],
+                 "comments": [
+                     {
+                         "id": 3,
+                         "book_id": 2,
+                         "comment": "Test comment",
+                         "commenter_ip": "192.168.1.112",
+                         "created_at": "2022-03-28T11:27:13.000000Z",
+                         "updated_at": "2022-03-28T11:27:13.000000Z"
+                     },
+                     {
+                         "id": 4,
+                         "book_id": 2,
+                         "comment": "Test comment one",
+                         "commenter_ip": "192.168.1.112",
+                         "created_at": "2022-03-28T11:32:14.000000Z",
+                         "updated_at": "2022-03-28T11:32:14.000000Z"
+                     }
+                 ],
+                 "created_at": "2022-03-27T19:41:09.000000Z",
+                 "updated_at": "2022-03-28T16:55:37.000000Z"
+             }
+          }
+        headers: []
+        description: '200'
     responseFields: []
   -
     httpMethods:
       - DELETE
     uri: 'api/book/{id}'
     metadata:
-      title: ''
-      description: ''
+      title: 'Delete Book'
+      description: 'This endpoint delete a book by ID.'
       authenticated: false
       custom: []
     headers:
@@ -566,10 +362,62 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: qui
+        example: rem
         type: string
         custom: []
-    queryParameters: []
+    queryParameters:
+      id:
+        name: id
+        description: 'The unique ID of a book.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
     bodyParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+             "status": 200,
+             "message": "Book deleted!",
+             "data": {
+                 "id": 2,
+                 "name": "A Game of Thrones",
+                 "isbn": "978-0553103540",
+                 "authors": "[\"George R. R. Martin\"]",
+                 "character_id": 1,
+                 "pov_character_id": 1,
+                 "numberOfPages": 694,
+                 "publisher": "Bantam Books",
+                 "country": "United States",
+                 "mediaType": "Hardcover",
+                 "released": "1996-08-01 00:00:00",
+                 "comment_count": 2,
+                 "povCharacters": [],
+                 "characters": [],
+                 "comments": [
+                     {
+                         "id": 3,
+                         "book_id": 2,
+                         "comment": "Test comment",
+                         "commenter_ip": "192.168.1.112",
+                         "created_at": "2022-03-28T11:27:13.000000Z",
+                         "updated_at": "2022-03-28T11:27:13.000000Z"
+                     },
+                     {
+                         "id": 4,
+                         "book_id": 2,
+                         "comment": "Test comment one",
+                         "commenter_ip": "192.168.1.112",
+                         "created_at": "2022-03-28T11:32:14.000000Z",
+                         "updated_at": "2022-03-28T11:32:14.000000Z"
+                     }
+                 ],
+                 "created_at": "2022-03-27T19:41:09.000000Z",
+                 "updated_at": "2022-03-27T19:41:09.000000Z"
+             }
+          }
+        headers: []
+        description: '200'
     responseFields: []
