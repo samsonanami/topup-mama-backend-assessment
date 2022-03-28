@@ -21,7 +21,3 @@ Created in Angular and hosted on GCP
 
 Link: https://app.bullapos.com/top-up-mama/app/
 
-
-```
-npm run server
-```
