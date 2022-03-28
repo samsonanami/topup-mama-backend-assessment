@@ -9,7 +9,7 @@ use App\Http\Resources\CharacterResource;
 
 /**
  * 
- * @group 2. Characters APIs
+ * @group 2.Characters APIs
  * 
  */
 class CharacterController extends Controller

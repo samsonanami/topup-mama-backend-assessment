@@ -34,6 +34,6 @@ class Book extends Model
     }
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'id', 'comment_id');
+        return $this->hasMany(Comment::class, 'book_id', 'id');
     }
 }

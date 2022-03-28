@@ -1,13 +1,13 @@
-name: '2.Characters APIs'
+name: '3.Comments APIs'
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/character
+    uri: api/comment
     metadata:
-      title: 'GET Books'
-      description: 'Display a listing of the books.'
+      title: 'List Comments'
+      description: 'This endpoint display a listing of all the book comments.'
       authenticated: false
       custom: []
     headers:
@@ -19,19 +19,36 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"name":"Jon Snow","gender":"Male","culture":"Northmen","born":"In 283 AC","died":"\"\"","titles":"[\"Lord Commander of the Night''s Watch\"]","aliases":"[\"Lord Snow\", \"Ned Stark''s Bastard\", \"The Snow of Winterfell\", \"The Crow-Come-Over\", \"The 998th Lord Commander of the Night''s Watch\", \"The Bastard of Winterfell\", \"The Black Bastard of the Wall\", \"Lord Crow\"]","father":"","mother":null,"spouse":null,"allegiances":null,"books":null,"povBooks":null,"tvSeries":null,"playedBy":null,"created_at":"2022-03-27T19:41:01.000000Z","updated_at":"2022-03-27T19:41:01.000000Z"}]'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-        description: null
+        content: |-
+          {
+          {
+             "status": 200,
+             "message": "Comments Found!",
+             "data": [
+                 {
+                     "book_id": 2,
+                     "comment": "Test comment one",
+                     "commenter_ip": "192.168.1.112",
+                     "created_at": "2022-03-28T11:32:14.000000Z"
+                 },
+                 {
+                     "book_id": 2,
+                     "comment": "Test comment",
+                     "commenter_ip": "192.168.1.112",
+                     "created_at": "2022-03-28T11:27:13.000000Z"
+                 }
+             ]
+          }
+        headers: []
+        description: '200'
     responseFields: []
   -
     httpMethods:
       - POST
-    uri: api/character
+    uri: api/comment
     metadata:
-      title: ''
-      description: ''
+      title: 'Create Comment'
+      description: 'This endpoint creates/store a comment for a book.'
       authenticated: false
       custom: []
     headers:
@@ -39,13 +56,50 @@ endpoints:
       Accept: application/json
     urlParameters: []
     queryParameters: []
-    bodyParameters: []
-    responses: []
+    bodyParameters:
+      book_id:
+        name: book_id
+        description: 'The books id from books table fro which comment is made.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+      comment:
+        name: comment
+        description: 'The comment detail or message itself.'
+        required: false
+        example: quia
+        type: string
+        custom: []
+      commenter_ip:
+        name: commenter_ip
+        description: 'The IP address of the commenter.'
+        required: false
+        example: 192.168.1.112
+        type: ipAddress
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          {
+             "status": 200,
+             "message": "Comment created!",
+             "data": {
+                 "book_id": "2",
+                 "comment": "Test comment one",
+                 "commenter_ip": "192.168.1.112",
+                 "created_at": "2022-03-28T11:32:14.000000Z"
+             }
+          }
+        headers: []
+        description: '200'
     responseFields: []
   -
     httpMethods:
       - GET
-    uri: 'api/character/{id}'
+    uri: 'api/comment/{id}'
     metadata:
       title: ''
       description: ''
@@ -59,7 +113,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: facilis
+        example: sit
         type: string
         custom: []
     queryParameters: []
@@ -69,7 +123,7 @@ endpoints:
         status: 500
         content: |-
           {
-              "message": "Trying to get property 'name' of non-object",
+              "message": "Trying to get property 'book_id' of non-object",
               "exception": "ErrorException",
               "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/DelegatesToResource.php",
               "line": 140,
@@ -89,7 +143,7 @@ endpoints:
                       "type": "->"
                   },
                   {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/CharacterResource.php",
+                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Resources/CommentResource.php",
                       "line": 12,
                       "function": "__get",
                       "class": "Illuminate\\Http\\Resources\\Json\\JsonResource",
@@ -99,7 +153,7 @@ endpoints:
                       "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/http/Resources/Json/JsonResource.php",
                       "line": 95,
                       "function": "toArray",
-                      "class": "App\\Http\\Resources\\CharacterResource",
+                      "class": "App\\Http\\Resources\\CommentResource",
                       "type": "->"
                   },
                   {
@@ -138,8 +192,8 @@ endpoints:
                       "type": "->"
                   },
                   {
-                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/CharacterController.php",
-                      "line": 56,
+                      "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/app/Http/Controllers/CommentController.php",
+                      "line": 87,
                       "function": "json",
                       "class": "Laravel\\Lumen\\Http\\ResponseFactory",
                       "type": "->"
@@ -148,7 +202,7 @@ endpoints:
                       "file": "/Applications/MAMP/htdocs/apps/top-up-mama/api/vendor/illuminate/container/BoundMethod.php",
                       "line": 36,
                       "function": "show",
-                      "class": "App\\Http\\Controllers\\CharacterController",
+                      "class": "App\\Http\\Controllers\\CommentController",
                       "type": "->"
                   },
                   {
@@ -441,7 +495,7 @@ endpoints:
   -
     httpMethods:
       - PUT
-    uri: 'api/character/{id}'
+    uri: 'api/comment/{id}'
     metadata:
       title: ''
       description: ''
@@ -455,7 +509,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: sit
+        example: id
         type: string
         custom: []
     queryParameters: []
@@ -465,7 +519,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/character/{id}'
+    uri: 'api/comment/{id}'
     metadata:
       title: ''
       description: ''
@@ -479,7 +533,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: quia
+        example: voluptate
         type: string
         custom: []
     queryParameters: []
